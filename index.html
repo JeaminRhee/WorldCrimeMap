@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_174618828ae6411696ce242ac0c2cc5d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_174618828ae6411696ce242ac0c2cc5d" ></div>
+        
+</body>
+<script>    
+    
+            var map_174618828ae6411696ce242ac0c2cc5d = L.map(
+                "map_174618828ae6411696ce242ac0c2cc5d",
+                {
+                    center: [37.537523, 126.876394],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 5,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_50958b270e724caa8342f635f5a50e48 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_174618828ae6411696ce242ac0c2cc5d);
+        
+    
+            var marker_e33ba69673fd4792a15e6e0494071ef4 = L.marker(
+                [37.5344742, 126.9908898],
+                {}
+            ).addTo(map_174618828ae6411696ce242ac0c2cc5d);
+        
+    
+        var popup_69b858c5147d492eb48d96985d7adbca = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f10436400b2e4a498764ea76af6f71c8 = $(`<div id="html_f10436400b2e4a498764ea76af6f71c8" style="width: 100.0%; height: 100.0%;">Itaewon Murder Case</div>`)[0];
+            popup_69b858c5147d492eb48d96985d7adbca.setContent(html_f10436400b2e4a498764ea76af6f71c8);
+        
+
+        marker_e33ba69673fd4792a15e6e0494071ef4.bindPopup(popup_69b858c5147d492eb48d96985d7adbca)
+        ;
+
+        
+    
+    
+            marker_e33ba69673fd4792a15e6e0494071ef4.bindTooltip(
+                `<div>
+                     Itaewon Murder Case
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c0be811b17d7463d9519aaa48fab978f = L.marker(
+                [34.0518732, -118.2952573],
+                {}
+            ).addTo(map_174618828ae6411696ce242ac0c2cc5d);
+        
+    
+        var popup_8188e0ac6d4c4764b4bffaabd1c41461 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6851012c06ff4c32a2a2c2ba645b3b3e = $(`<div id="html_6851012c06ff4c32a2a2c2ba645b3b3e" style="width: 100.0%; height: 100.0%;">1992 LA Riots</div>`)[0];
+            popup_8188e0ac6d4c4764b4bffaabd1c41461.setContent(html_6851012c06ff4c32a2a2c2ba645b3b3e);
+        
+
+        marker_c0be811b17d7463d9519aaa48fab978f.bindPopup(popup_8188e0ac6d4c4764b4bffaabd1c41461)
+        ;
+
+        
+    
+    
+            marker_c0be811b17d7463d9519aaa48fab978f.bindTooltip(
+                `<div>
+                     1992 LA Riots
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
