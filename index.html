@@ -23,7 +23,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_174618828ae6411696ce242ac0c2cc5d {
+                #map_b1efdfbe257a4563ab13d37430d2710a {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -32,20 +32,55 @@
                 }
             </style>
         
+    
+            <style>
+                #scroll_zoom_toggler_76c2aecaf4174d8daddbcab531388087 {
+                    position:absolute;
+                    width:35px;
+                    bottom:10px;
+                    height:35px;
+                    left:10px;
+                    background-color:#fff;
+                    text-align:center;
+                    line-height:35px;
+                    vertical-align: middle;
+                    }
+            </style>
+        
+    <script src="https://unpkg.com/leaflet.boatmarker/leaflet.boatmarker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://rawcdn.githack.com/ardhi/Leaflet.MousePosition/c32f1c84/src/L.Control.MousePosition.js"></script>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/ardhi/Leaflet.MousePosition/c32f1c84/src/L.Control.MousePosition.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
 </head>
 <body>    
     
-            <div class="folium-map" id="map_174618828ae6411696ce242ac0c2cc5d" ></div>
+            <div class="folium-map" id="map_b1efdfbe257a4563ab13d37430d2710a" ></div>
+        
+    
+            <img id="scroll_zoom_toggler_76c2aecaf4174d8daddbcab531388087"
+                 alt="scroll"
+                 src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/png/512/arrow-move.png"
+                 style="z-index: 999999"
+                 onclick="map_b1efdfbe257a4563ab13d37430d2710a.toggleScroll()">
+            </img>
         
 </body>
 <script>    
     
-            var map_174618828ae6411696ce242ac0c2cc5d = L.map(
-                "map_174618828ae6411696ce242ac0c2cc5d",
+            var map_b1efdfbe257a4563ab13d37430d2710a = L.map(
+                "map_b1efdfbe257a4563ab13d37430d2710a",
                 {
                     center: [37.537523, 126.876394],
                     crs: L.CRS.EPSG3857,
-                    zoom: 5,
+                    maxBounds: [[-45, -180], [90, 180]],
+                    zoom: 2,
                     zoomControl: true,
                     preferCanvas: false,
                 }
@@ -55,32 +90,61 @@
 
         
     
-            var tile_layer_50958b270e724caa8342f635f5a50e48 = L.tileLayer(
+            var tile_layer_c90be849383d4ecf980b497bc3578173 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 10, "maxZoom": 10, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+        
+    
+            var tile_layer_9b37f425690b4c479b9f390a0f782c48 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_174618828ae6411696ce242ac0c2cc5d);
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
         
     
-            var marker_e33ba69673fd4792a15e6e0494071ef4 = L.marker(
+            var tile_layer_cc03b1921c13442b889ceee76cedd78c = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+        
+    
+            var tile_layer_9fda1b089dbb43e789a1d802f3bca9ef = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+        
+    
+            var feature_group_913b26b49fc44a978a10902d1bc9473d = L.featureGroup(
+                {}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+        
+    
+            var marker_9b1ef7abcf124df2b3adf0944309ffb1 = L.marker(
                 [37.5344742, 126.9908898],
                 {}
-            ).addTo(map_174618828ae6411696ce242ac0c2cc5d);
+            ).addTo(feature_group_913b26b49fc44a978a10902d1bc9473d);
         
     
-        var popup_69b858c5147d492eb48d96985d7adbca = L.popup({"maxWidth": "100%"});
+            var icon_12fc487eb660426eb8a91735969df418 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9b1ef7abcf124df2b3adf0944309ffb1.setIcon(icon_12fc487eb660426eb8a91735969df418);
+        
+    
+        var popup_31fcbaa831ab4183a98f355765d724a2 = L.popup({"maxWidth": "100%"});
 
         
-            var html_f10436400b2e4a498764ea76af6f71c8 = $(`<div id="html_f10436400b2e4a498764ea76af6f71c8" style="width: 100.0%; height: 100.0%;">Itaewon Murder Case</div>`)[0];
-            popup_69b858c5147d492eb48d96985d7adbca.setContent(html_f10436400b2e4a498764ea76af6f71c8);
+            var html_15937504a4b041bd99b2e7129401f8f6 = $(`<div id="html_15937504a4b041bd99b2e7129401f8f6" style="width: 100.0%; height: 100.0%;">Stamen Terrain</div>`)[0];
+            popup_31fcbaa831ab4183a98f355765d724a2.setContent(html_15937504a4b041bd99b2e7129401f8f6);
         
 
-        marker_e33ba69673fd4792a15e6e0494071ef4.bindPopup(popup_69b858c5147d492eb48d96985d7adbca)
+        marker_9b1ef7abcf124df2b3adf0944309ffb1.bindPopup(popup_31fcbaa831ab4183a98f355765d724a2)
         ;
 
         
     
     
-            marker_e33ba69673fd4792a15e6e0494071ef4.bindTooltip(
+            marker_9b1ef7abcf124df2b3adf0944309ffb1.bindTooltip(
                 `<div>
                      Itaewon Murder Case
                  </div>`,
@@ -88,30 +152,3085 @@
             );
         
     
-            var marker_c0be811b17d7463d9519aaa48fab978f = L.marker(
+            var marker_3c1929550d3845b39b99cb7dd0b0e2e9 = L.marker(
                 [34.0518732, -118.2952573],
                 {}
-            ).addTo(map_174618828ae6411696ce242ac0c2cc5d);
+            ).addTo(feature_group_913b26b49fc44a978a10902d1bc9473d);
         
     
-        var popup_8188e0ac6d4c4764b4bffaabd1c41461 = L.popup({"maxWidth": "100%"});
+            var icon_03199d82aadb446abda8317902d53d12 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cloud", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3c1929550d3845b39b99cb7dd0b0e2e9.setIcon(icon_03199d82aadb446abda8317902d53d12);
+        
+    
+        var popup_d4de3b882cd24bc4a0a2d96db9a041f4 = L.popup({"maxWidth": "100%"});
 
         
-            var html_6851012c06ff4c32a2a2c2ba645b3b3e = $(`<div id="html_6851012c06ff4c32a2a2c2ba645b3b3e" style="width: 100.0%; height: 100.0%;">1992 LA Riots</div>`)[0];
-            popup_8188e0ac6d4c4764b4bffaabd1c41461.setContent(html_6851012c06ff4c32a2a2c2ba645b3b3e);
+            var html_34d71571dba143ae92b0e7314fa9294b = $(`<div id="html_34d71571dba143ae92b0e7314fa9294b" style="width: 100.0%; height: 100.0%;">1992 LA Riots</div>`)[0];
+            popup_d4de3b882cd24bc4a0a2d96db9a041f4.setContent(html_34d71571dba143ae92b0e7314fa9294b);
         
 
-        marker_c0be811b17d7463d9519aaa48fab978f.bindPopup(popup_8188e0ac6d4c4764b4bffaabd1c41461)
+        marker_3c1929550d3845b39b99cb7dd0b0e2e9.bindPopup(popup_d4de3b882cd24bc4a0a2d96db9a041f4)
         ;
 
         
     
     
-            marker_c0be811b17d7463d9519aaa48fab978f.bindTooltip(
+            marker_3c1929550d3845b39b99cb7dd0b0e2e9.bindTooltip(
                 `<div>
                      1992 LA Riots
                  </div>`,
                 {"sticky": true}
             );
+        
+    
+            var feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11 = L.featureGroup(
+                {}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+        
+    
+            var marker_f4d7cdbc162e4d6d83361855e64473ef = L.marker(
+                [23.2707228, -110.3272912],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_0414c925bbef4b7dbc319f4821c9856b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_f4d7cdbc162e4d6d83361855e64473ef.setIcon(icon_0414c925bbef4b7dbc319f4821c9856b);
+        
+    
+        var popup_3afed8e82c97471eb9eecef58dbe534f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0590eb3ca00f4afc95eb14da82134ed1 = $(`<div id="html_0590eb3ca00f4afc95eb14da82134ed1" style="width: 100.0%; height: 100.0%;">Total murders (2017): 365  Murders per 100,000 people: 111.33</div>`)[0];
+            popup_3afed8e82c97471eb9eecef58dbe534f.setContent(html_0590eb3ca00f4afc95eb14da82134ed1);
+        
+
+        marker_f4d7cdbc162e4d6d83361855e64473ef.bindPopup(popup_3afed8e82c97471eb9eecef58dbe534f)
+        ;
+
+        
+    
+    
+            marker_f4d7cdbc162e4d6d83361855e64473ef.bindTooltip(
+                `<div>
+                     Los Cabos
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_139548c23e4b4008ae0e695c49ba64e3 = L.marker(
+                [10.4683612, -67.0304547],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_85b31948e398488abbdc5a97431e6024 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_139548c23e4b4008ae0e695c49ba64e3.setIcon(icon_85b31948e398488abbdc5a97431e6024);
+        
+    
+        var popup_58c2c8a844464d2788d086dce67f58d9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4d94b62306784dcb85a317a7ebee8529 = $(`<div id="html_4d94b62306784dcb85a317a7ebee8529" style="width: 100.0%; height: 100.0%;">In 2018, Caracas had a population of 2,980, 492 people and 2,980 homicides.</div>`)[0];
+            popup_58c2c8a844464d2788d086dce67f58d9.setContent(html_4d94b62306784dcb85a317a7ebee8529);
+        
+
+        marker_139548c23e4b4008ae0e695c49ba64e3.bindPopup(popup_58c2c8a844464d2788d086dce67f58d9)
+        ;
+
+        
+    
+    
+            marker_139548c23e4b4008ae0e695c49ba64e3.bindTooltip(
+                `<div>
+                     Caracas
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b1584f96dff94926954c229017ddb4a1 = L.marker(
+                [16.8359278, -100.142516],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_44ccc84b7363499e825bfc71d1b716fc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_b1584f96dff94926954c229017ddb4a1.setIcon(icon_44ccc84b7363499e825bfc71d1b716fc);
+        
+    
+        var popup_1c7b920a54f444c4a2a3ee3da0b0df3f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f9cb186716204ef784baa29ee14ff1d2 = $(`<div id="html_f9cb186716204ef784baa29ee14ff1d2" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 106.63</div>`)[0];
+            popup_1c7b920a54f444c4a2a3ee3da0b0df3f.setContent(html_f9cb186716204ef784baa29ee14ff1d2);
+        
+
+        marker_b1584f96dff94926954c229017ddb4a1.bindPopup(popup_1c7b920a54f444c4a2a3ee3da0b0df3f)
+        ;
+
+        
+    
+    
+            marker_b1584f96dff94926954c229017ddb4a1.bindTooltip(
+                `<div>
+                     Acapulco
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4b5edc16010f4a70b4c575d5a24a1899 = L.marker(
+                [-5.8268438, -35.2419186],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_f549b5205d2b4882a8f1fb7c92905f99 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_4b5edc16010f4a70b4c575d5a24a1899.setIcon(icon_f549b5205d2b4882a8f1fb7c92905f99);
+        
+    
+        var popup_4aef1d8ffb884136a87822217e527c6b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8e8799cc377d44c6bd1cfb9533b75d96 = $(`<div id="html_8e8799cc377d44c6bd1cfb9533b75d96" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 102.56</div>`)[0];
+            popup_4aef1d8ffb884136a87822217e527c6b.setContent(html_8e8799cc377d44c6bd1cfb9533b75d96);
+        
+
+        marker_4b5edc16010f4a70b4c575d5a24a1899.bindPopup(popup_4aef1d8ffb884136a87822217e527c6b)
+        ;
+
+        
+    
+    
+            marker_4b5edc16010f4a70b4c575d5a24a1899.bindTooltip(
+                `<div>
+                     Natal, Brazil
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6bf027549190491abaf3e952196934db = L.marker(
+                [32.4969713, -117.087895],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_ad0da4359b414a02a24c7655e5d8ee6d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_6bf027549190491abaf3e952196934db.setIcon(icon_ad0da4359b414a02a24c7655e5d8ee6d);
+        
+    
+        var popup_6b5a6193945c4c298aacd870a000288a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cb87e1614bf14e6691ed41117a117294 = $(`<div id="html_cb87e1614bf14e6691ed41117a117294" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 100.77</div>`)[0];
+            popup_6b5a6193945c4c298aacd870a000288a.setContent(html_cb87e1614bf14e6691ed41117a117294);
+        
+
+        marker_6bf027549190491abaf3e952196934db.bindPopup(popup_6b5a6193945c4c298aacd870a000288a)
+        ;
+
+        
+    
+    
+            marker_6bf027549190491abaf3e952196934db.bindTooltip(
+                `<div>
+                     Tijuana
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_296fe77ea68249ec83281effb0fc7350 = L.marker(
+                [24.1165776, -110.3727681],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_bc96b5a13843408da64644bddd7c51d0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_296fe77ea68249ec83281effb0fc7350.setIcon(icon_bc96b5a13843408da64644bddd7c51d0);
+        
+    
+        var popup_aa8b4ca73c71415893415e70b3769224 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_444d6406d7574fd48b5f0dd620ae7179 = $(`<div id="html_444d6406d7574fd48b5f0dd620ae7179" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 84.79</div>`)[0];
+            popup_aa8b4ca73c71415893415e70b3769224.setContent(html_444d6406d7574fd48b5f0dd620ae7179);
+        
+
+        marker_296fe77ea68249ec83281effb0fc7350.bindPopup(popup_aa8b4ca73c71415893415e70b3769224)
+        ;
+
+        
+    
+    
+            marker_296fe77ea68249ec83281effb0fc7350.bindTooltip(
+                `<div>
+                     La Paz, Mexico
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_493928f00db744548bf7f9dd2d2f86e0 = L.marker(
+                [-3.7897468, -38.6590366],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_aa433cc276024e5d9e413b4bc72f875d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_493928f00db744548bf7f9dd2d2f86e0.setIcon(icon_aa433cc276024e5d9e413b4bc72f875d);
+        
+    
+        var popup_fdc990c3db28477cbee7b2a31a2f92eb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_82d17dc2ea89447a86dcd64a3d4bbf11 = $(`<div id="html_82d17dc2ea89447a86dcd64a3d4bbf11" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 83.48</div>`)[0];
+            popup_fdc990c3db28477cbee7b2a31a2f92eb.setContent(html_82d17dc2ea89447a86dcd64a3d4bbf11);
+        
+
+        marker_493928f00db744548bf7f9dd2d2f86e0.bindPopup(popup_fdc990c3db28477cbee7b2a31a2f92eb)
+        ;
+
+        
+    
+    
+            marker_493928f00db744548bf7f9dd2d2f86e0.bindTooltip(
+                `<div>
+                     Fortaleza - State of Ceará, Brazil
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e00ecbe69c684d3783cf7022681b3eba = L.marker(
+                [23.7411381, -99.2133792],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_0d8454c9737743d491f3704dd7ad74fe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_e00ecbe69c684d3783cf7022681b3eba.setIcon(icon_0d8454c9737743d491f3704dd7ad74fe);
+        
+    
+        var popup_9bc10eb7419940c79bd31f65dfe4e4fd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_23651ae61eea49aea010b1b9c934bee5 = $(`<div id="html_23651ae61eea49aea010b1b9c934bee5" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 83.32</div>`)[0];
+            popup_9bc10eb7419940c79bd31f65dfe4e4fd.setContent(html_23651ae61eea49aea010b1b9c934bee5);
+        
+
+        marker_e00ecbe69c684d3783cf7022681b3eba.bindPopup(popup_9bc10eb7419940c79bd31f65dfe4e4fd)
+        ;
+
+        
+    
+    
+            marker_e00ecbe69c684d3783cf7022681b3eba.bindTooltip(
+                `<div>
+                     Ciudad Victoria, Mexico
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_20c6882f732f486b926b056509eb3ea9 = L.marker(
+                [8.291212, -62.849257],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_f369f7bc564844f1aa2d7a1db7b5eab0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_20c6882f732f486b926b056509eb3ea9.setIcon(icon_f369f7bc564844f1aa2d7a1db7b5eab0);
+        
+    
+        var popup_7b30955c361b4783aa2184cd1069de39 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e51e92a3374645f1a40bd1176814c1db = $(`<div id="html_e51e92a3374645f1a40bd1176814c1db" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 80.28</div>`)[0];
+            popup_7b30955c361b4783aa2184cd1069de39.setContent(html_e51e92a3374645f1a40bd1176814c1db);
+        
+
+        marker_20c6882f732f486b926b056509eb3ea9.bindPopup(popup_7b30955c361b4783aa2184cd1069de39)
+        ;
+
+        
+    
+    
+            marker_20c6882f732f486b926b056509eb3ea9.bindTooltip(
+                `<div>
+                     Ciudad Guayana, Venezuela
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5081e62410814a528d85f67761622d1e = L.marker(
+                [8.291212, -62.849257],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_8a1dd901a4794aa1888b354ef471c33e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_5081e62410814a528d85f67761622d1e.setIcon(icon_8a1dd901a4794aa1888b354ef471c33e);
+        
+    
+        var popup_6ad63a1e4d9746629e7c5bf8dbeeb9d0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fe2b647b054b4d0d875e540a9817686c = $(`<div id="html_fe2b647b054b4d0d875e540a9817686c" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 71.38</div>`)[0];
+            popup_6ad63a1e4d9746629e7c5bf8dbeeb9d0.setContent(html_fe2b647b054b4d0d875e540a9817686c);
+        
+
+        marker_5081e62410814a528d85f67761622d1e.bindPopup(popup_6ad63a1e4d9746629e7c5bf8dbeeb9d0)
+        ;
+
+        
+    
+    
+            marker_5081e62410814a528d85f67761622d1e.bindTooltip(
+                `<div>
+                     Belém, Pará
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7ed453faadf940fdb78085ba39de0649 = L.marker(
+                [-14.8641344, -40.9130183],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_63af4db7c3354fba8e12f0b6ba0f46e1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_7ed453faadf940fdb78085ba39de0649.setIcon(icon_63af4db7c3354fba8e12f0b6ba0f46e1);
+        
+    
+        var popup_ff045b96a81442bd8a46f6114060d1e2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bcc4e814e4a04e5b98e2bfe2a7a9b794 = $(`<div id="html_bcc4e814e4a04e5b98e2bfe2a7a9b794" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 70.26</div>`)[0];
+            popup_ff045b96a81442bd8a46f6114060d1e2.setContent(html_bcc4e814e4a04e5b98e2bfe2a7a9b794);
+        
+
+        marker_7ed453faadf940fdb78085ba39de0649.bindPopup(popup_ff045b96a81442bd8a46f6114060d1e2)
+        ;
+
+        
+    
+    
+            marker_7ed453faadf940fdb78085ba39de0649.bindTooltip(
+                `<div>
+                     Vitoria da Conquista
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_76d2bf7c842e442ea7e8d64de01e074d = L.marker(
+                [24.8050567, -107.4933552],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_a097789afa364676b7daf416528d0fa4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_76d2bf7c842e442ea7e8d64de01e074d.setIcon(icon_a097789afa364676b7daf416528d0fa4);
+        
+    
+        var popup_3d2d319c2e3c47479f70e794e6f3e993 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e3ff8f905b824d10822e7a4862986fcc = $(`<div id="html_e3ff8f905b824d10822e7a4862986fcc" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 70.10</div>`)[0];
+            popup_3d2d319c2e3c47479f70e794e6f3e993.setContent(html_e3ff8f905b824d10822e7a4862986fcc);
+        
+
+        marker_76d2bf7c842e442ea7e8d64de01e074d.bindPopup(popup_3d2d319c2e3c47479f70e794e6f3e993)
+        ;
+
+        
+    
+    
+            marker_76d2bf7c842e442ea7e8d64de01e074d.bindTooltip(
+                `<div>
+                     Culiacan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b9afc453e9ab41deb1a41fa3a7c88d7d = L.marker(
+                [38.6532851, -90.3835492],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_52845c5646624398a15a062aaf406df2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_b9afc453e9ab41deb1a41fa3a7c88d7d.setIcon(icon_52845c5646624398a15a062aaf406df2);
+        
+    
+        var popup_587eaaf9ed374687b97a374a7a24ebdd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6d505970e7264847a2488e2bc741d514 = $(`<div id="html_6d505970e7264847a2488e2bc741d514" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 65.83</div>`)[0];
+            popup_587eaaf9ed374687b97a374a7a24ebdd.setContent(html_6d505970e7264847a2488e2bc741d514);
+        
+
+        marker_b9afc453e9ab41deb1a41fa3a7c88d7d.bindPopup(popup_587eaaf9ed374687b97a374a7a24ebdd)
+        ;
+
+        
+    
+    
+            marker_b9afc453e9ab41deb1a41fa3a7c88d7d.bindTooltip(
+                `<div>
+                     St. Louis
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_39c391ac4d884c94ad45391130608be2 = L.marker(
+                [-33.9131286, 18.0955756],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_114dc13a08814480a4a8fb799df69630 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_39c391ac4d884c94ad45391130608be2.setIcon(icon_114dc13a08814480a4a8fb799df69630);
+        
+    
+        var popup_136313e4c4ed47429cd0613354f59576 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_31a66afa7be040afb66d1e5edf870591 = $(`<div id="html_31a66afa7be040afb66d1e5edf870591" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 62.25</div>`)[0];
+            popup_136313e4c4ed47429cd0613354f59576.setContent(html_31a66afa7be040afb66d1e5edf870591);
+        
+
+        marker_39c391ac4d884c94ad45391130608be2.bindPopup(popup_136313e4c4ed47429cd0613354f59576)
+        ;
+
+        
+    
+    
+            marker_39c391ac4d884c94ad45391130608be2.bindTooltip(
+                `<div>
+                     Cape Town
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0acfb4949c224c6d86ac92af59d5b070 = L.marker(
+                [18.018087, -76.8706976],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_3be9e26b32b44094933c63a57d74142d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_0acfb4949c224c6d86ac92af59d5b070.setIcon(icon_3be9e26b32b44094933c63a57d74142d);
+        
+    
+        var popup_b4a8d8e16d264d199bae085d37fe3e74 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a9b06d5ecad040268c77d939d6a2aae2 = $(`<div id="html_a9b06d5ecad040268c77d939d6a2aae2" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 59.71</div>`)[0];
+            popup_b4a8d8e16d264d199bae085d37fe3e74.setContent(html_a9b06d5ecad040268c77d939d6a2aae2);
+        
+
+        marker_0acfb4949c224c6d86ac92af59d5b070.bindPopup(popup_b4a8d8e16d264d199bae085d37fe3e74)
+        ;
+
+        
+    
+    
+            marker_0acfb4949c224c6d86ac92af59d5b070.bindTooltip(
+                `<div>
+                     Kingston
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_71728df204864c349dce9b37ca54dd3e = L.marker(
+                [13.6916351, -89.2852931],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_31c96e64fcfa4b6b81f8826fd9fedfda = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_71728df204864c349dce9b37ca54dd3e.setIcon(icon_31c96e64fcfa4b6b81f8826fd9fedfda);
+        
+    
+        var popup_0acaaf6b290f4484a00bff27e20dd9dd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_32652cd8a29e4bf2b5332b7ae8b851e5 = $(`<div id="html_32652cd8a29e4bf2b5332b7ae8b851e5" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 59.06</div>`)[0];
+            popup_0acaaf6b290f4484a00bff27e20dd9dd.setContent(html_32652cd8a29e4bf2b5332b7ae8b851e5);
+        
+
+        marker_71728df204864c349dce9b37ca54dd3e.bindPopup(popup_0acaaf6b290f4484a00bff27e20dd9dd)
+        ;
+
+        
+    
+    
+            marker_71728df204864c349dce9b37ca54dd3e.bindTooltip(
+                `<div>
+                     San Salvador
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e55cdd3fafbd41b5bcb131013154904c = L.marker(
+                [-11.0056387, -37.2432457],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_f5c98179834546e4b912f82c5f772271 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_e55cdd3fafbd41b5bcb131013154904c.setIcon(icon_f5c98179834546e4b912f82c5f772271);
+        
+    
+        var popup_d0a0c8c5500e4868bcb46368501fd70c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d96229caf30c4ac7932900ae48ff2e4b = $(`<div id="html_d96229caf30c4ac7932900ae48ff2e4b" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 58.88</div>`)[0];
+            popup_d0a0c8c5500e4868bcb46368501fd70c.setContent(html_d96229caf30c4ac7932900ae48ff2e4b);
+        
+
+        marker_e55cdd3fafbd41b5bcb131013154904c.bindPopup(popup_d0a0c8c5500e4868bcb46368501fd70c)
+        ;
+
+        
+    
+    
+            marker_e55cdd3fafbd41b5bcb131013154904c.bindTooltip(
+                `<div>
+                     Aracaju
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_20c0d16b9d404f5282c8c35ea79bf580 = L.marker(
+                [-12.2449081, -38.9483658],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_bec6b6cab7f34ee3975c5e125fb9bb64 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_20c0d16b9d404f5282c8c35ea79bf580.setIcon(icon_bec6b6cab7f34ee3975c5e125fb9bb64);
+        
+    
+        var popup_6ac866d517f747f0b010ee08fe748d50 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_20b09588d2fe48dca48251979e4eee1f = $(`<div id="html_20b09588d2fe48dca48251979e4eee1f" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 58.81</div>`)[0];
+            popup_6ac866d517f747f0b010ee08fe748d50.setContent(html_20b09588d2fe48dca48251979e4eee1f);
+        
+
+        marker_20c0d16b9d404f5282c8c35ea79bf580.bindPopup(popup_6ac866d517f747f0b010ee08fe748d50)
+        ;
+
+        
+    
+    
+            marker_20c0d16b9d404f5282c8c35ea79bf580.bindTooltip(
+                `<div>
+                     Feira de Santana
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1c81856006664e738d4fd51033808c55 = L.marker(
+                [31.4685722, -106.8722774],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_0a83cd7053fa4859a44f26c15b32b4cc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_1c81856006664e738d4fd51033808c55.setIcon(icon_0a83cd7053fa4859a44f26c15b32b4cc);
+        
+    
+        var popup_438cca1069464fff9901510dcbd1da8f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c8c93cba3c1d4da196f349bb2521f03d = $(`<div id="html_c8c93cba3c1d4da196f349bb2521f03d" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 56.16</div>`)[0];
+            popup_438cca1069464fff9901510dcbd1da8f.setContent(html_c8c93cba3c1d4da196f349bb2521f03d);
+        
+
+        marker_1c81856006664e738d4fd51033808c55.bindPopup(popup_438cca1069464fff9901510dcbd1da8f)
+        ;
+
+        
+    
+    
+            marker_1c81856006664e738d4fd51033808c55.bindTooltip(
+                `<div>
+                     Ciudad Juárez
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8819131b613d400ba71eb7f88871b83d = L.marker(
+                [39.2848882, -76.7605731],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_8005f54f64214448a8e65e7b77a2c2ed = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_8819131b613d400ba71eb7f88871b83d.setIcon(icon_8005f54f64214448a8e65e7b77a2c2ed);
+        
+    
+        var popup_461ef9cf45a1416ca6121541bd5c8e7e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b9b38ce43b254c1f8abc6f7363f32d35 = $(`<div id="html_b9b38ce43b254c1f8abc6f7363f32d35" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 55.48</div>`)[0];
+            popup_461ef9cf45a1416ca6121541bd5c8e7e.setContent(html_b9b38ce43b254c1f8abc6f7363f32d35);
+        
+
+        marker_8819131b613d400ba71eb7f88871b83d.bindPopup(popup_461ef9cf45a1416ca6121541bd5c8e7e)
+        ;
+
+        
+    
+    
+            marker_8819131b613d400ba71eb7f88871b83d.bindTooltip(
+                `<div>
+                     Baltimore
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1c1fb7cc4600497fb1fe853ab754646d = L.marker(
+                [-8.0418006, -35.0787252],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_6733c419f4d547e1b06f6e6d76e30788 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_1c1fb7cc4600497fb1fe853ab754646d.setIcon(icon_6733c419f4d547e1b06f6e6d76e30788);
+        
+    
+        var popup_2664daa9365b4116b53503db324e1314 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_60897538188148658f684e002a462f32 = $(`<div id="html_60897538188148658f684e002a462f32" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 54.96</div>`)[0];
+            popup_2664daa9365b4116b53503db324e1314.setContent(html_60897538188148658f684e002a462f32);
+        
+
+        marker_1c1fb7cc4600497fb1fe853ab754646d.bindPopup(popup_2664daa9365b4116b53503db324e1314)
+        ;
+
+        
+    
+    
+            marker_1c1fb7cc4600497fb1fe853ab754646d.bindTooltip(
+                `<div>
+                     Recife
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f837a0510bbc446b839b6d4a4b7465a7 = L.marker(
+                [9.7498167, -63.3309065],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_1d191945c93d4338b8894e11d71bc8a5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_f837a0510bbc446b839b6d4a4b7465a7.setIcon(icon_1d191945c93d4338b8894e11d71bc8a5);
+        
+    
+        var popup_468099208d5f412d8dc7b5ca736019c9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4820e5dd3d2448548a733b6d0c86ddaa = $(`<div id="html_4820e5dd3d2448548a733b6d0c86ddaa" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 54.43</div>`)[0];
+            popup_468099208d5f412d8dc7b5ca736019c9.setContent(html_4820e5dd3d2448548a733b6d0c86ddaa);
+        
+
+        marker_f837a0510bbc446b839b6d4a4b7465a7.bindPopup(popup_468099208d5f412d8dc7b5ca736019c9)
+        ;
+
+        
+    
+    
+            marker_f837a0510bbc446b839b6d4a4b7465a7.bindTooltip(
+                `<div>
+                     Maturin
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_50e1fc98aa9a41f5b08ed378ebfb0cd5 = L.marker(
+                [14.6263757, -90.5626018],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_4c57ff7d26c34514bd3658391d79093c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_50e1fc98aa9a41f5b08ed378ebfb0cd5.setIcon(icon_4c57ff7d26c34514bd3658391d79093c);
+        
+    
+        var popup_6ccce4ce8fc84c6cb543817d417d2b41 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e88856798c844a4fbfd3ae087c4cd13c = $(`<div id="html_e88856798c844a4fbfd3ae087c4cd13c" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 53.49</div>`)[0];
+            popup_6ccce4ce8fc84c6cb543817d417d2b41.setContent(html_e88856798c844a4fbfd3ae087c4cd13c);
+        
+
+        marker_50e1fc98aa9a41f5b08ed378ebfb0cd5.bindPopup(popup_6ccce4ce8fc84c6cb543817d417d2b41)
+        ;
+
+        
+    
+    
+            marker_50e1fc98aa9a41f5b08ed378ebfb0cd5.bindTooltip(
+                `<div>
+                     Guatemala City
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f1ac688c855f43aa8a458be041772f10 = L.marker(
+                [-12.9012521, -38.5598969],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_9b957506dace49cb9e95e1aaaa80bb83 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_f1ac688c855f43aa8a458be041772f10.setIcon(icon_9b957506dace49cb9e95e1aaaa80bb83);
+        
+    
+        var popup_55ee53ae2d0a4b9ba449e16c2d125417 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a3df0a19960f46f48de224de862229ea = $(`<div id="html_a3df0a19960f46f48de224de862229ea" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 51.58</div>`)[0];
+            popup_55ee53ae2d0a4b9ba449e16c2d125417.setContent(html_a3df0a19960f46f48de224de862229ea);
+        
+
+        marker_f1ac688c855f43aa8a458be041772f10.bindPopup(popup_55ee53ae2d0a4b9ba449e16c2d125417)
+        ;
+
+        
+    
+    
+            marker_f1ac688c855f43aa8a458be041772f10.bindTooltip(
+                `<div>
+                     Salvador
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cb18f5c96df34a7cbbf0f4307c6cbb40 = L.marker(
+                [15.5198897, -88.0555308],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_0e9a303730fe42959ff6bc031820462c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_cb18f5c96df34a7cbbf0f4307c6cbb40.setIcon(icon_0e9a303730fe42959ff6bc031820462c);
+        
+    
+        var popup_76be28831c7a49ed951e40c9f204edd8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f08c0e6be65d4cc983a75a1c170fe2be = $(`<div id="html_f08c0e6be65d4cc983a75a1c170fe2be" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 51.18</div>`)[0];
+            popup_76be28831c7a49ed951e40c9f204edd8.setContent(html_f08c0e6be65d4cc983a75a1c170fe2be);
+        
+
+        marker_cb18f5c96df34a7cbbf0f4307c6cbb40.bindPopup(popup_76be28831c7a49ed951e40c9f204edd8)
+        ;
+
+        
+    
+    
+            marker_cb18f5c96df34a7cbbf0f4307c6cbb40.bindTooltip(
+                `<div>
+                     San Pedro Sula
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a39aa623ee1b4d1a867db709d154831c = L.marker(
+                [10.1727434, -68.0642653],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_1a6e49c137b1484ea0535ca2dd22cf79 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_a39aa623ee1b4d1a867db709d154831c.setIcon(icon_1a6e49c137b1484ea0535ca2dd22cf79);
+        
+    
+        var popup_2183602ee8724240a22de76f89f835fa = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b2c72032f831463280d13cadb6bc7f8f = $(`<div id="html_b2c72032f831463280d13cadb6bc7f8f" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 49.74</div>`)[0];
+            popup_2183602ee8724240a22de76f89f835fa.setContent(html_b2c72032f831463280d13cadb6bc7f8f);
+        
+
+        marker_a39aa623ee1b4d1a867db709d154831c.bindPopup(popup_2183602ee8724240a22de76f89f835fa)
+        ;
+
+        
+    
+    
+            marker_a39aa623ee1b4d1a867db709d154831c.bindTooltip(
+                `<div>
+                     Valencia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_dc4af7ba74d64154b2d35bcbbdeead11 = L.marker(
+                [3.395397, -76.6657539],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_4d321aa15cb84c6cae956fecd7b00dd5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_dc4af7ba74d64154b2d35bcbbdeead11.setIcon(icon_4d321aa15cb84c6cae956fecd7b00dd5);
+        
+    
+        var popup_3660e2d0d07248fcb7e0982c2a9a36cd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6cff471be3634f0b850a1eabb88f920f = $(`<div id="html_6cff471be3634f0b850a1eabb88f920f" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 49.59</div>`)[0];
+            popup_3660e2d0d07248fcb7e0982c2a9a36cd.setContent(html_6cff471be3634f0b850a1eabb88f920f);
+        
+
+        marker_dc4af7ba74d64154b2d35bcbbdeead11.bindPopup(popup_3660e2d0d07248fcb7e0982c2a9a36cd)
+        ;
+
+        
+    
+    
+            marker_dc4af7ba74d64154b2d35bcbbdeead11.bindTooltip(
+                `<div>
+                     Cali, Valle del Cauca, Colombia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3e4043d4587a43fc96c753e072abfa59 = L.marker(
+                [28.6711604, -106.2047067],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_7aeef66b040e4fbdbbae5439ef72107c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_3e4043d4587a43fc96c753e072abfa59.setIcon(icon_7aeef66b040e4fbdbbae5439ef72107c);
+        
+    
+        var popup_2bac21e5485b4c3bb53327d818087e2d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_485e0c0088874cae93be4f0000e77eef = $(`<div id="html_485e0c0088874cae93be4f0000e77eef" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 49.48</div>`)[0];
+            popup_2bac21e5485b4c3bb53327d818087e2d.setContent(html_485e0c0088874cae93be4f0000e77eef);
+        
+
+        marker_3e4043d4587a43fc96c753e072abfa59.bindPopup(popup_2bac21e5485b4c3bb53327d818087e2d)
+        ;
+
+        
+    
+    
+            marker_3e4043d4587a43fc96c753e072abfa59.bindTooltip(
+                `<div>
+                     Chihuahua
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_32a3f60982dc4726b442584994fd2a01 = L.marker(
+                [-7.1464332, -34.9516388],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_a29dc63f03724e5d949fd31c4313f2d4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_32a3f60982dc4726b442584994fd2a01.setIcon(icon_a29dc63f03724e5d949fd31c4313f2d4);
+        
+    
+        var popup_67edd2fa4dc9474dbe225ca8eaf90102 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f37d408d0c104ce99b9816051a255956 = $(`<div id="html_f37d408d0c104ce99b9816051a255956" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 49.17</div>`)[0];
+            popup_67edd2fa4dc9474dbe225ca8eaf90102.setContent(html_f37d408d0c104ce99b9816051a255956);
+        
+
+        marker_32a3f60982dc4726b442584994fd2a01.bindPopup(popup_67edd2fa4dc9474dbe225ca8eaf90102)
+        ;
+
+        
+    
+    
+            marker_32a3f60982dc4726b442584994fd2a01.bindTooltip(
+                `<div>
+                     Joao Pessoa
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2cace882fd824898922e3460e5d5d70f = L.marker(
+                [21.1322351, -101.6916145],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_acb53c2b82574a258d8ac642824d1c24 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_2cace882fd824898922e3460e5d5d70f.setIcon(icon_acb53c2b82574a258d8ac642824d1c24);
+        
+    
+        var popup_5618bc6b2d6040f8b366099f58910dd4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_623e14814ec54de1a9e784d7ac2a2ffd = $(`<div id="html_623e14814ec54de1a9e784d7ac2a2ffd" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 48.96</div>`)[0];
+            popup_5618bc6b2d6040f8b366099f58910dd4.setContent(html_623e14814ec54de1a9e784d7ac2a2ffd);
+        
+
+        marker_2cace882fd824898922e3460e5d5d70f.bindPopup(popup_5618bc6b2d6040f8b366099f58910dd4)
+        ;
+
+        
+    
+    
+            marker_2cace882fd824898922e3460e5d5d70f.bindTooltip(
+                `<div>
+                     Obregon
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_914dd4884d524a1ca09f8ea219e94a4e = L.marker(
+                [20.403538, -100.0435132],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_54be505bc46f4ae693b5318bfafe1467 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_914dd4884d524a1ca09f8ea219e94a4e.setIcon(icon_54be505bc46f4ae693b5318bfafe1467);
+        
+    
+        var popup_e03cdae4d22c4983a4746cf4a987eb93 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3a95197eba9e41689dc36b1ed1a43401 = $(`<div id="html_3a95197eba9e41689dc36b1ed1a43401" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 48.96</div>`)[0];
+            popup_e03cdae4d22c4983a4746cf4a987eb93.setContent(html_3a95197eba9e41689dc36b1ed1a43401);
+        
+
+        marker_914dd4884d524a1ca09f8ea219e94a4e.bindPopup(popup_e03cdae4d22c4983a4746cf4a987eb93)
+        ;
+
+        
+    
+    
+            marker_914dd4884d524a1ca09f8ea219e94a4e.bindTooltip(
+                `<div>
+                     San Juan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9dce34df789549faa2789ad039c75551 = L.marker(
+                [-3.0443101, -60.1071938],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_b1ce7dce420b471ab1384963636f9ecb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_9dce34df789549faa2789ad039c75551.setIcon(icon_b1ce7dce420b471ab1384963636f9ecb);
+        
+    
+        var popup_668a80eebb084ba3b668aab7ab3a3f50 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f67049655e474e1ab2dd03127fb10701 = $(`<div id="html_f67049655e474e1ab2dd03127fb10701" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 48.07</div>`)[0];
+            popup_668a80eebb084ba3b668aab7ab3a3f50.setContent(html_f67049655e474e1ab2dd03127fb10701);
+        
+
+        marker_9dce34df789549faa2789ad039c75551.bindPopup(popup_668a80eebb084ba3b668aab7ab3a3f50)
+        ;
+
+        
+    
+    
+            marker_9dce34df789549faa2789ad039c75551.bindTooltip(
+                `<div>
+                     Manaus
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ac4dbaed0aba462e9082259c332d70b4 = L.marker(
+                [14.1056636, -87.2036231],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_d858d4181c964498ba1f230476ddcf13 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_ac4dbaed0aba462e9082259c332d70b4.setIcon(icon_d858d4181c964498ba1f230476ddcf13);
+        
+    
+        var popup_1d184d11dd87420581a7f1391a0a6076 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b2230943575248c3be37a374a9b2f218 = $(`<div id="html_b2230943575248c3be37a374a9b2f218" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 48.00</div>`)[0];
+            popup_1d184d11dd87420581a7f1391a0a6076.setContent(html_b2230943575248c3be37a374a9b2f218);
+        
+
+        marker_ac4dbaed0aba462e9082259c332d70b4.bindPopup(popup_1d184d11dd87420581a7f1391a0a6076)
+        ;
+
+        
+    
+    
+            marker_ac4dbaed0aba462e9082259c332d70b4.bindTooltip(
+                `<div>
+                     Distrito Central
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fac0387175704aa0bc25d6e56ed1c732 = L.marker(
+                [21.5011309, -104.9469458],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_a39b7ea1277b49c58260a99bd6a38880 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_fac0387175704aa0bc25d6e56ed1c732.setIcon(icon_a39b7ea1277b49c58260a99bd6a38880);
+        
+    
+        var popup_7406e4f3b85948a582d73239ce87ff2c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7462eb74d0fd41d483325b203ebbe493 = $(`<div id="html_7462eb74d0fd41d483325b203ebbe493" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 47.09</div>`)[0];
+            popup_7406e4f3b85948a582d73239ce87ff2c.setContent(html_7462eb74d0fd41d483325b203ebbe493);
+        
+
+        marker_fac0387175704aa0bc25d6e56ed1c732.bindPopup(popup_7406e4f3b85948a582d73239ce87ff2c)
+        ;
+
+        
+    
+    
+            marker_fac0387175704aa0bc25d6e56ed1c732.bindTooltip(
+                `<div>
+                     Tepic
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_58d24b48117847ebabb94253d9d30785 = L.marker(
+                [3.5320986, -76.3304453],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_8a51cdf598d3415da1026e1f20d90a2e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_58d24b48117847ebabb94253d9d30785.setIcon(icon_8a51cdf598d3415da1026e1f20d90a2e);
+        
+    
+        var popup_42a9c7c69b944412b7bb831bc17f2688 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_41e9838d444e4cb6b7089f6f1bc7e735 = $(`<div id="html_41e9838d444e4cb6b7089f6f1bc7e735" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 46.65</div>`)[0];
+            popup_42a9c7c69b944412b7bb831bc17f2688.setContent(html_41e9838d444e4cb6b7089f6f1bc7e735);
+        
+
+        marker_58d24b48117847ebabb94253d9d30785.bindPopup(popup_42a9c7c69b944412b7bb831bc17f2688)
+        ;
+
+        
+    
+    
+            marker_58d24b48117847ebabb94253d9d30785.bindTooltip(
+                `<div>
+                     Palmira
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_88d65329e73147b3b528cf28300aa608 = L.marker(
+                [26.0314841, -98.436292],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_98799b516ff249ae857cb8a2b670c183 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_88d65329e73147b3b528cf28300aa608.setIcon(icon_98799b516ff249ae857cb8a2b670c183);
+        
+    
+        var popup_0ddf7e0ba5a44c71ae4210b9dd8a082f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_44d666daaa2e4de1a03c82be2469629a = $(`<div id="html_44d666daaa2e4de1a03c82be2469629a" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 41.95</div>`)[0];
+            popup_0ddf7e0ba5a44c71ae4210b9dd8a082f.setContent(html_44d666daaa2e4de1a03c82be2469629a);
+        
+
+        marker_88d65329e73147b3b528cf28300aa608.bindPopup(popup_0ddf7e0ba5a44c71ae4210b9dd8a082f)
+        ;
+
+        
+    
+    
+            marker_88d65329e73147b3b528cf28300aa608.bindTooltip(
+                `<div>
+                     Reynosa
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e22e48bbcb764fd797ffd96976e12206 = L.marker(
+                [-30.1084987, -51.3172295],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_ea046ee9608341b6b1c6be41a3d7db33 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_e22e48bbcb764fd797ffd96976e12206.setIcon(icon_ea046ee9608341b6b1c6be41a3d7db33);
+        
+    
+        var popup_eebd1b81c14c472c907cea2d74512f1f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_29a5793d842243c787b552f3fcad0975 = $(`<div id="html_29a5793d842243c787b552f3fcad0975" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 40.96</div>`)[0];
+            popup_eebd1b81c14c472c907cea2d74512f1f.setContent(html_29a5793d842243c787b552f3fcad0975);
+        
+
+        marker_e22e48bbcb764fd797ffd96976e12206.bindPopup(popup_eebd1b81c14c472c907cea2d74512f1f)
+        ;
+
+        
+    
+    
+            marker_e22e48bbcb764fd797ffd96976e12206.bindTooltip(
+                `<div>
+                     Porto Alegre
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0eecf6aa291f45c089154b81052ce90f = L.marker(
+                [0.0310596, -51.0651359],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_441ab4c45c85440a9fc2a5031b22ec3f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_0eecf6aa291f45c089154b81052ce90f.setIcon(icon_441ab4c45c85440a9fc2a5031b22ec3f);
+        
+    
+        var popup_5604ef9c0ce543e8904daea7b87e8126 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3226f3cb566949b6a7810bda0202d200 = $(`<div id="html_3226f3cb566949b6a7810bda0202d200" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 40.24</div>`)[0];
+            popup_5604ef9c0ce543e8904daea7b87e8126.setContent(html_3226f3cb566949b6a7810bda0202d200);
+        
+
+        marker_0eecf6aa291f45c089154b81052ce90f.bindPopup(popup_5604ef9c0ce543e8904daea7b87e8126)
+        ;
+
+        
+    
+    
+            marker_0eecf6aa291f45c089154b81052ce90f.bindTooltip(
+                `<div>
+                     Macapa
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bae215091e0a47e99687620b2817c841 = L.marker(
+                [30.0332941, -90.1627658],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_118ba9e22f424a7d9c4a0e381d985bc9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_bae215091e0a47e99687620b2817c841.setIcon(icon_118ba9e22f424a7d9c4a0e381d985bc9);
+        
+    
+        var popup_03564088261c45f2b67b087b281574be = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5d1326c3d7b3494aa69ebf9a1f17bc17 = $(`<div id="html_5d1326c3d7b3494aa69ebf9a1f17bc17" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 40.10</div>`)[0];
+            popup_03564088261c45f2b67b087b281574be.setContent(html_5d1326c3d7b3494aa69ebf9a1f17bc17);
+        
+
+        marker_bae215091e0a47e99687620b2817c841.bindPopup(popup_03564088261c45f2b67b087b281574be)
+        ;
+
+        
+    
+    
+            marker_bae215091e0a47e99687620b2817c841.bindTooltip(
+                `<div>
+                     New Orleans
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6aff9a5cfe33447db5eae995961300c3 = L.marker(
+                [42.3528795, -83.2392917],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_4b132258634749eda75f9d12bb37ea57 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_6aff9a5cfe33447db5eae995961300c3.setIcon(icon_4b132258634749eda75f9d12bb37ea57);
+        
+    
+        var popup_ad1a494217a14af48bb7d6e87e44ebb1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_895caf22534041e182af335d17bdda74 = $(`<div id="html_895caf22534041e182af335d17bdda74" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 39.69</div>`)[0];
+            popup_ad1a494217a14af48bb7d6e87e44ebb1.setContent(html_895caf22534041e182af335d17bdda74);
+        
+
+        marker_6aff9a5cfe33447db5eae995961300c3.bindPopup(popup_ad1a494217a14af48bb7d6e87e44ebb1)
+        ;
+
+        
+    
+    
+            marker_6aff9a5cfe33447db5eae995961300c3.bindTooltip(
+                `<div>
+                     Detroit
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6c2e052ca19645c2bca4b84dde583e82 = L.marker(
+                [23.2468861, -106.4923183],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_6bb52dce8e8f45d095858972c712f4c4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_6c2e052ca19645c2bca4b84dde583e82.setIcon(icon_6bb52dce8e8f45d095858972c712f4c4);
+        
+    
+        var popup_8c50dbc8ec5f443da40fecb48e8ab760 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_132ce96b7e2c464ba31fa85415c423b9 = $(`<div id="html_132ce96b7e2c464ba31fa85415c423b9" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 39.32</div>`)[0];
+            popup_8c50dbc8ec5f443da40fecb48e8ab760.setContent(html_132ce96b7e2c464ba31fa85415c423b9);
+        
+
+        marker_6c2e052ca19645c2bca4b84dde583e82.bindPopup(popup_8c50dbc8ec5f443da40fecb48e8ab760)
+        ;
+
+        
+    
+    
+            marker_6c2e052ca19645c2bca4b84dde583e82.bindTooltip(
+                `<div>
+                     Mazatlan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_96bd02aa54f044eca00a909b9de58995 = L.marker(
+                [-29.848212, 30.9224217],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_b6e55ef7fae3452f8031feeecce082bc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_96bd02aa54f044eca00a909b9de58995.setIcon(icon_b6e55ef7fae3452f8031feeecce082bc);
+        
+    
+        var popup_69da127dcb964d81a4652dc4cda290d6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e5b7685805444ab9a0f6832e3050f6c2 = $(`<div id="html_e5b7685805444ab9a0f6832e3050f6c2" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 38.12</div>`)[0];
+            popup_69da127dcb964d81a4652dc4cda290d6.setContent(html_e5b7685805444ab9a0f6832e3050f6c2);
+        
+
+        marker_96bd02aa54f044eca00a909b9de58995.bindPopup(popup_69da127dcb964d81a4652dc4cda290d6)
+        ;
+
+        
+    
+    
+            marker_96bd02aa54f044eca00a909b9de58995.bindTooltip(
+                `<div>
+                     Durban
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f76ebb1f4ce24fcc8b44f74f4bec3efc = L.marker(
+                [-21.7769086, -41.454651],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_deb3cfc05f9b4cceb2a31c3a3a203bce = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_f76ebb1f4ce24fcc8b44f74f4bec3efc.setIcon(icon_deb3cfc05f9b4cceb2a31c3a3a203bce);
+        
+    
+        var popup_99ead3e41e18411a8891175005ecd89d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2fc9d371bc1845bc8b8303a7bf1c46a7 = $(`<div id="html_2fc9d371bc1845bc8b8303a7bf1c46a7" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 37.53</div>`)[0];
+            popup_99ead3e41e18411a8891175005ecd89d.setContent(html_2fc9d371bc1845bc8b8303a7bf1c46a7);
+        
+
+        marker_f76ebb1f4ce24fcc8b44f74f4bec3efc.bindPopup(popup_99ead3e41e18411a8891175005ecd89d)
+        ;
+
+        
+    
+    
+            marker_f76ebb1f4ce24fcc8b44f74f4bec3efc.bindTooltip(
+                `<div>
+                     Campos dos Goytacazes
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6b7ed7c700e648b3bd45146a9eadafc5 = L.marker(
+                [-33.8003035, 24.9711044],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_fa811690f7fd4d8bbaf9994008f00b57 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_6b7ed7c700e648b3bd45146a9eadafc5.setIcon(icon_fa811690f7fd4d8bbaf9994008f00b57);
+        
+    
+        var popup_72653970111846bea61fe7d20f113ff0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5fff5abbbb534a219db5199e8f3eeee7 = $(`<div id="html_5fff5abbbb534a219db5199e8f3eeee7" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 37.53</div>`)[0];
+            popup_72653970111846bea61fe7d20f113ff0.setContent(html_5fff5abbbb534a219db5199e8f3eeee7);
+        
+
+        marker_6b7ed7c700e648b3bd45146a9eadafc5.bindPopup(popup_72653970111846bea61fe7d20f113ff0)
+        ;
+
+        
+    
+    
+            marker_6b7ed7c700e648b3bd45146a9eadafc5.bindTooltip(
+                `<div>
+                     Nelson Mandela Bay
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f6cb63795f1a44ecad9da0a8c1a142b7 = L.marker(
+                [-7.242662, -35.9716057],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_8c8451e12a0a4840b58be775b18919da = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_f6cb63795f1a44ecad9da0a8c1a142b7.setIcon(icon_8c8451e12a0a4840b58be775b18919da);
+        
+    
+        var popup_fcc84588b02049fca7562190c0fec333 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ed77f6033eab446dbf51beb838a9c1ba = $(`<div id="html_ed77f6033eab446dbf51beb838a9c1ba" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 37.29</div>`)[0];
+            popup_fcc84588b02049fca7562190c0fec333.setContent(html_ed77f6033eab446dbf51beb838a9c1ba);
+        
+
+        marker_f6cb63795f1a44ecad9da0a8c1a142b7.bindPopup(popup_fcc84588b02049fca7562190c0fec333)
+        ;
+
+        
+    
+    
+            marker_f6cb63795f1a44ecad9da0a8c1a142b7.bindTooltip(
+                `<div>
+                     Campina Grande
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2fc840fc5c894ebd9b0366082c272e38 = L.marker(
+                [-5.0933825, -42.881168],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_9bf4d60615cb492b86e989fe26f75266 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_2fc840fc5c894ebd9b0366082c272e38.setIcon(icon_9bf4d60615cb492b86e989fe26f75266);
+        
+    
+        var popup_a30764c50d41461380f18e2cf6470a42 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e066b87f5ea242ca98b4389bf4121016 = $(`<div id="html_e066b87f5ea242ca98b4389bf4121016" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 37.05</div>`)[0];
+            popup_a30764c50d41461380f18e2cf6470a42.setContent(html_e066b87f5ea242ca98b4389bf4121016);
+        
+
+        marker_2fc840fc5c894ebd9b0366082c272e38.bindPopup(popup_a30764c50d41461380f18e2cf6470a42)
+        ;
+
+        
+    
+    
+            marker_2fc840fc5c894ebd9b0366082c272e38.bindTooltip(
+                `<div>
+                     Teresina, State of Piauí, Brazil
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e86cc2d2fbcf48738785ec04a0407b03 = L.marker(
+                [-20.2820166, -40.3557448],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_ccf6e547fc1f40358c288a7e7670d24b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_e86cc2d2fbcf48738785ec04a0407b03.setIcon(icon_ccf6e547fc1f40358c288a7e7670d24b);
+        
+    
+        var popup_bf4bbe9ea7564c3aa983b31f04895788 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_28ff16e4445141948f9164b249a982f0 = $(`<div id="html_28ff16e4445141948f9164b249a982f0" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 36.07</div>`)[0];
+            popup_bf4bbe9ea7564c3aa983b31f04895788.setContent(html_28ff16e4445141948f9164b249a982f0);
+        
+
+        marker_e86cc2d2fbcf48738785ec04a0407b03.bindPopup(popup_bf4bbe9ea7564c3aa983b31f04895788)
+        ;
+
+        
+    
+    
+            marker_e86cc2d2fbcf48738785ec04a0407b03.bindTooltip(
+                `<div>
+                     Vitoria
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_731d165bb8544c3da2eeb0f5d910ad21 = L.marker(
+                [7.9089243, -72.5744619],
+                {}
+            ).addTo(feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11);
+        
+    
+            var icon_28062e6951a04b8e8850ebcde65e3dc2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "lightgray", "prefix": "fa"}
+            );
+            marker_731d165bb8544c3da2eeb0f5d910ad21.setIcon(icon_28062e6951a04b8e8850ebcde65e3dc2);
+        
+    
+        var popup_c613750b7e904f50929ab63066049de4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8319b5dde04a42e29d95cc1207b75b5f = $(`<div id="html_8319b5dde04a42e29d95cc1207b75b5f" style="width: 100.0%; height: 100.0%;">Homicide Rate(Per 100,000): 34.78</div>`)[0];
+            popup_c613750b7e904f50929ab63066049de4.setContent(html_8319b5dde04a42e29d95cc1207b75b5f);
+        
+
+        marker_731d165bb8544c3da2eeb0f5d910ad21.bindPopup(popup_c613750b7e904f50929ab63066049de4)
+        ;
+
+        
+    
+    
+            marker_731d165bb8544c3da2eeb0f5d910ad21.bindTooltip(
+                `<div>
+                     Cucuta
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var feature_group_7707ca2032194b2795c4b6c055e7436f = L.featureGroup(
+                {}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+        
+    
+            var marker_ef8fc97ee8d3459b8a34626bba1d7580 = L.marker(
+                [41.8333925, -88.0121484],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_f8c0a4f149474480a804233ac24aef1f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ef8fc97ee8d3459b8a34626bba1d7580.setIcon(icon_f8c0a4f149474480a804233ac24aef1f);
+        
+    
+        var popup_5c0c3a7464004fdbb91b8d780653211e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_734e545ffccf48e4a426ed8d25a0f680 = $(`<div id="html_734e545ffccf48e4a426ed8d25a0f680" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_5c0c3a7464004fdbb91b8d780653211e.setContent(html_734e545ffccf48e4a426ed8d25a0f680);
+        
+
+        marker_ef8fc97ee8d3459b8a34626bba1d7580.bindPopup(popup_5c0c3a7464004fdbb91b8d780653211e)
+        ;
+
+        
+    
+    
+            marker_ef8fc97ee8d3459b8a34626bba1d7580.bindTooltip(
+                `<div>
+                     USA
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3fe687e902424c1fad28b5dca24f5b4c = L.marker(
+                [15.262779, 9.6834804],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_75c5d4c65af34549a708002e61a10e72 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3fe687e902424c1fad28b5dca24f5b4c.setIcon(icon_75c5d4c65af34549a708002e61a10e72);
+        
+    
+        var popup_3b927aeb7dbe45ec8f8f942359a139d8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b4e1b86e99304ec3aabe5b71fc896bb0 = $(`<div id="html_b4e1b86e99304ec3aabe5b71fc896bb0" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_3b927aeb7dbe45ec8f8f942359a139d8.setContent(html_b4e1b86e99304ec3aabe5b71fc896bb0);
+        
+
+        marker_3fe687e902424c1fad28b5dca24f5b4c.bindPopup(popup_3b927aeb7dbe45ec8f8f942359a139d8)
+        ;
+
+        
+    
+    
+            marker_3fe687e902424c1fad28b5dca24f5b4c.bindTooltip(
+                `<div>
+                     Chad
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cbee9714fcdd430bb5825aa439d87969 = L.marker(
+                [47.3444607, 4.3648709],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_b3f380f9fe3f4824a1d53b15758aac16 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_cbee9714fcdd430bb5825aa439d87969.setIcon(icon_b3f380f9fe3f4824a1d53b15758aac16);
+        
+    
+        var popup_aa3f5983e2b24475bfaeb12231b680b2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_749df16581884214bb1d694b12a32479 = $(`<div id="html_749df16581884214bb1d694b12a32479" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_aa3f5983e2b24475bfaeb12231b680b2.setContent(html_749df16581884214bb1d694b12a32479);
+        
+
+        marker_cbee9714fcdd430bb5825aa439d87969.bindPopup(popup_aa3f5983e2b24475bfaeb12231b680b2)
+        ;
+
+        
+    
+    
+            marker_cbee9714fcdd430bb5825aa439d87969.bindTooltip(
+                `<div>
+                     Austria
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7b7f9a87c27a4120b61492af14dae9da = L.marker(
+                [-0.6856399, 5.8225698],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_fab0412784c0492b9074962e2a9243fe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_7b7f9a87c27a4120b61492af14dae9da.setIcon(icon_fab0412784c0492b9074962e2a9243fe);
+        
+    
+        var popup_85c2db964c6b44c5b913f6d84ef3d087 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_331be6077d7e4cfba99d0e416091e1d6 = $(`<div id="html_331be6077d7e4cfba99d0e416091e1d6" style="width: 100.0%; height: 100.0%;">Possessing Guss Is Legal</div>`)[0];
+            popup_85c2db964c6b44c5b913f6d84ef3d087.setContent(html_331be6077d7e4cfba99d0e416091e1d6);
+        
+
+        marker_7b7f9a87c27a4120b61492af14dae9da.bindPopup(popup_85c2db964c6b44c5b913f6d84ef3d087)
+        ;
+
+        
+    
+    
+            marker_7b7f9a87c27a4120b61492af14dae9da.bindTooltip(
+                `<div>
+                     Republic of Congo
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_409b36b4c3f34791814472959f3e5878 = L.marker(
+                [15.179543, -90.7094955],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_e2a9e0507caf4f3488158a431080e063 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_409b36b4c3f34791814472959f3e5878.setIcon(icon_e2a9e0507caf4f3488158a431080e063);
+        
+    
+        var popup_b94dd702ead84c43be5f8f610974b9a8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_73ec0202f8154a69a9998bf3820ba1a1 = $(`<div id="html_73ec0202f8154a69a9998bf3820ba1a1" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_b94dd702ead84c43be5f8f610974b9a8.setContent(html_73ec0202f8154a69a9998bf3820ba1a1);
+        
+
+        marker_409b36b4c3f34791814472959f3e5878.bindPopup(popup_b94dd702ead84c43be5f8f610974b9a8)
+        ;
+
+        
+    
+    
+            marker_409b36b4c3f34791814472959f3e5878.bindTooltip(
+                `<div>
+                     Honduras
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7c469add21b94399a3d56230d908c5fa = L.marker(
+                [4.9477384, 131.7352345],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_de99b6dcc33044c1a80c30710697369b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_7c469add21b94399a3d56230d908c5fa.setIcon(icon_de99b6dcc33044c1a80c30710697369b);
+        
+    
+        var popup_d799f163c473436da06c720eb2679a4e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_014fa8bc61ff4de89dbe3612b69a956f = $(`<div id="html_014fa8bc61ff4de89dbe3612b69a956f" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_d799f163c473436da06c720eb2679a4e.setContent(html_014fa8bc61ff4de89dbe3612b69a956f);
+        
+
+        marker_7c469add21b94399a3d56230d908c5fa.bindPopup(popup_d799f163c473436da06c720eb2679a4e)
+        ;
+
+        
+    
+    
+            marker_7c469add21b94399a3d56230d908c5fa.bindTooltip(
+                `<div>
+                     Micronesia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5130fd5975cb4234ad3573d91981b488 = L.marker(
+                [4.9477384, 131.7352345],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_dc3abe6220ee4189ae85fb2bff1ffbdf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_5130fd5975cb4234ad3573d91981b488.setIcon(icon_dc3abe6220ee4189ae85fb2bff1ffbdf);
+        
+    
+        var popup_58611eefa89448d2b8369f77989bae61 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0c464bc00cf64a5f8f28723880654bb9 = $(`<div id="html_0c464bc00cf64a5f8f28723880654bb9" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_58611eefa89448d2b8369f77989bae61.setContent(html_0c464bc00cf64a5f8f28723880654bb9);
+        
+
+        marker_5130fd5975cb4234ad3573d91981b488.bindPopup(popup_58611eefa89448d2b8369f77989bae61)
+        ;
+
+        
+    
+    
+            marker_5130fd5975cb4234ad3573d91981b488.bindTooltip(
+                `<div>
+                     Namibia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6c4fe289fe4540be83d63a7d8e3b709f = L.marker(
+                [-22.7109105, 9.3260071],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_cf9a000203e7488c871fead38e4c03ef = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_6c4fe289fe4540be83d63a7d8e3b709f.setIcon(icon_cf9a000203e7488c871fead38e4c03ef);
+        
+    
+        var popup_ce79c8f4d06647b3aa9e2039183ec5a0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b71825a5538544a490b6ecb7e1124af8 = $(`<div id="html_b71825a5538544a490b6ecb7e1124af8" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_ce79c8f4d06647b3aa9e2039183ec5a0.setContent(html_b71825a5538544a490b6ecb7e1124af8);
+        
+
+        marker_6c4fe289fe4540be83d63a7d8e3b709f.bindPopup(popup_ce79c8f4d06647b3aa9e2039183ec5a0)
+        ;
+
+        
+    
+    
+            marker_6c4fe289fe4540be83d63a7d8e3b709f.bindTooltip(
+                `<div>
+                     Micronesia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_840391b0e82c4e5899c9fab4ea010c2a = L.marker(
+                [8.9230342, -0.3807499],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_049126d360b54197bed717df924c0fb1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_840391b0e82c4e5899c9fab4ea010c2a.setIcon(icon_049126d360b54197bed717df924c0fb1);
+        
+    
+        var popup_5790beee1744481e9ae41f0cfba527d6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0f5bf2e857fc4c509240e10bd3202619 = $(`<div id="html_0f5bf2e857fc4c509240e10bd3202619" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_5790beee1744481e9ae41f0cfba527d6.setContent(html_0f5bf2e857fc4c509240e10bd3202619);
+        
+
+        marker_840391b0e82c4e5899c9fab4ea010c2a.bindPopup(popup_5790beee1744481e9ae41f0cfba527d6)
+        ;
+
+        
+    
+    
+            marker_840391b0e82c4e5899c9fab4ea010c2a.bindTooltip(
+                `<div>
+                     Nigeria
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c0a5b73f3fa347daad8eca8f98e4eb24 = L.marker(
+                [29.0909861, 51.131844],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_03ca84bea7854ad1b8e79c1d2fb9a2d3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c0a5b73f3fa347daad8eca8f98e4eb24.setIcon(icon_03ca84bea7854ad1b8e79c1d2fb9a2d3);
+        
+    
+        var popup_c97602c8acc64891a131311c42262b71 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_650dba50a3ea4d68a933a4dd6bcf75eb = $(`<div id="html_650dba50a3ea4d68a933a4dd6bcf75eb" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_c97602c8acc64891a131311c42262b71.setContent(html_650dba50a3ea4d68a933a4dd6bcf75eb);
+        
+
+        marker_c0a5b73f3fa347daad8eca8f98e4eb24.bindPopup(popup_c97602c8acc64891a131311c42262b71)
+        ;
+
+        
+    
+    
+            marker_c0a5b73f3fa347daad8eca8f98e4eb24.bindTooltip(
+                `<div>
+                     Pakistan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6063009948e84179ba298a457cede078 = L.marker(
+                [11.1119969, 104.1729581],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_43f2082a6b564546a89571da24d8e274 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_6063009948e84179ba298a457cede078.setIcon(icon_43f2082a6b564546a89571da24d8e274);
+        
+    
+        var popup_7555549f7b4445d581a8ed7362ef3e2f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_70466167b32e4b70a93667bc920bb1e2 = $(`<div id="html_70466167b32e4b70a93667bc920bb1e2" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_7555549f7b4445d581a8ed7362ef3e2f.setContent(html_70466167b32e4b70a93667bc920bb1e2);
+        
+
+        marker_6063009948e84179ba298a457cede078.bindPopup(popup_7555549f7b4445d581a8ed7362ef3e2f)
+        ;
+
+        
+    
+    
+            marker_6063009948e84179ba298a457cede078.bindTooltip(
+                `<div>
+                     Philippines
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d5500513e6c94392a554937b28e67f23 = L.marker(
+                [14.4361563, -19.0172273],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_06146fedcd7a4588a2f792127b2516f6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_d5500513e6c94392a554937b28e67f23.setIcon(icon_06146fedcd7a4588a2f792127b2516f6);
+        
+    
+        var popup_0def16e71aee4b4ea7990b99ee0f80a2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cbdb49008f284548899326392bc922c7 = $(`<div id="html_cbdb49008f284548899326392bc922c7" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_0def16e71aee4b4ea7990b99ee0f80a2.setContent(html_cbdb49008f284548899326392bc922c7);
+        
+
+        marker_d5500513e6c94392a554937b28e67f23.bindPopup(popup_0def16e71aee4b4ea7990b99ee0f80a2)
+        ;
+
+        
+    
+    
+            marker_d5500513e6c94392a554937b28e67f23.bindTooltip(
+                `<div>
+                     Senegal
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_20885d6cad214b26ab96d5af2320a4f4 = L.marker(
+                [-6.2939602, 25.929914],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_b0e679316e384a899326132dd4dd4803 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_20885d6cad214b26ab96d5af2320a4f4.setIcon(icon_b0e679316e384a899326132dd4dd4803);
+        
+    
+        var popup_c4b437a502864f86ad79bd46f2b2ad98 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b92b28e6e89b4927886b20df92b8a5f4 = $(`<div id="html_b92b28e6e89b4927886b20df92b8a5f4" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_c4b437a502864f86ad79bd46f2b2ad98.setContent(html_b92b28e6e89b4927886b20df92b8a5f4);
+        
+
+        marker_20885d6cad214b26ab96d5af2320a4f4.bindPopup(popup_c4b437a502864f86ad79bd46f2b2ad98)
+        ;
+
+        
+    
+    
+            marker_20885d6cad214b26ab96d5af2320a4f4.bindTooltip(
+                `<div>
+                     Tanzania
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_20bb580b59334259a4800a63ecf4b5de = L.marker(
+                [15.2157512, 39.1427183],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_d98d1f7e45874a0686d1a231667b3604 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_20bb580b59334259a4800a63ecf4b5de.setIcon(icon_d98d1f7e45874a0686d1a231667b3604);
+        
+    
+        var popup_9ffdc219e29f40008b119b5925d92ca9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f50b3db5c7454d8699a4a4f740ae4358 = $(`<div id="html_f50b3db5c7454d8699a4a4f740ae4358" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_9ffdc219e29f40008b119b5925d92ca9.setContent(html_f50b3db5c7454d8699a4a4f740ae4358);
+        
+
+        marker_20bb580b59334259a4800a63ecf4b5de.bindPopup(popup_9ffdc219e29f40008b119b5925d92ca9)
+        ;
+
+        
+    
+    
+            marker_20bb580b59334259a4800a63ecf4b5de.bindTooltip(
+                `<div>
+                     Yemen
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4f61fffe2b6f41669a21b94b6ebce2dc = L.marker(
+                [-12.9821971, 18.7998868],
+                {}
+            ).addTo(feature_group_7707ca2032194b2795c4b6c055e7436f);
+        
+    
+            var icon_62c9d84ed0d54bd8823b6246c565be69 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_4f61fffe2b6f41669a21b94b6ebce2dc.setIcon(icon_62c9d84ed0d54bd8823b6246c565be69);
+        
+    
+        var popup_a6aca1dbec6c4448b632c6100bf4b36b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_368f33e907dd48aca6079a7f83d75dcf = $(`<div id="html_368f33e907dd48aca6079a7f83d75dcf" style="width: 100.0%; height: 100.0%;">No Permit Required To Get Firearms</div>`)[0];
+            popup_a6aca1dbec6c4448b632c6100bf4b36b.setContent(html_368f33e907dd48aca6079a7f83d75dcf);
+        
+
+        marker_4f61fffe2b6f41669a21b94b6ebce2dc.bindPopup(popup_a6aca1dbec6c4448b632c6100bf4b36b)
+        ;
+
+        
+    
+    
+            marker_4f61fffe2b6f41669a21b94b6ebce2dc.bindTooltip(
+                `<div>
+                     Zambia
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var feature_group_4c51b303577f47a381686b34fbed96b5 = L.featureGroup(
+                {}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+        
+    
+            var marker_c87b7204788f4e76907ee48b155f0ac3 = L.marker(
+                [38.6530169, -90.3835487],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_06a2815fa57a4c36abc7e413983b8127 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c87b7204788f4e76907ee48b155f0ac3.setIcon(icon_06a2815fa57a4c36abc7e413983b8127);
+        
+    
+        var popup_a0f4ec1bf3854f55bda5a3a2cc809589 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b586cda68c054e39967b1ee7d0d08f9a = $(`<div id="html_b586cda68c054e39967b1ee7d0d08f9a" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 2,082 per 100,000 • 2017 Homicides: 205 • Poverty rate: 26.7% • Unemployment rate: 4.4%</div>`)[0];
+            popup_a0f4ec1bf3854f55bda5a3a2cc809589.setContent(html_b586cda68c054e39967b1ee7d0d08f9a);
+        
+
+        marker_c87b7204788f4e76907ee48b155f0ac3.bindPopup(popup_a0f4ec1bf3854f55bda5a3a2cc809589)
+        ;
+
+        
+    
+    
+            marker_c87b7204788f4e76907ee48b155f0ac3.bindTooltip(
+                `<div>
+                     St. Louis, Missouri
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_59920d4c4f9a4595bc960c88043f4bd2 = L.marker(
+                [42.3523699, -83.3793979],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_53ac73cf876d4822940a438a52fd2e3f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_59920d4c4f9a4595bc960c88043f4bd2.setIcon(icon_53ac73cf876d4822940a438a52fd2e3f);
+        
+    
+        var popup_f62096760ed941189d49301ecfcaab1e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9b7cdcc171124ef09fd572c338ef2d87 = $(`<div id="html_9b7cdcc171124ef09fd572c338ef2d87" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 2,057 per 100,000 • 2017 Homicides: 267 • Poverty rate: 39.4% • Unemployment rate: 9.3%</div>`)[0];
+            popup_f62096760ed941189d49301ecfcaab1e.setContent(html_9b7cdcc171124ef09fd572c338ef2d87);
+        
+
+        marker_59920d4c4f9a4595bc960c88043f4bd2.bindPopup(popup_f62096760ed941189d49301ecfcaab1e)
+        ;
+
+        
+    
+    
+            marker_59920d4c4f9a4595bc960c88043f4bd2.bindTooltip(
+                `<div>
+                     Detroit, Michigan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_92e0839046d24a3fb492d8882ab2a462 = L.marker(
+                [39.2846225, -76.7605726],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_81a1fdae08f84156ae2e529fa2f41976 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_92e0839046d24a3fb492d8882ab2a462.setIcon(icon_81a1fdae08f84156ae2e529fa2f41976);
+        
+    
+        var popup_61d01be0e1284381ade5c288d3d81fe5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4e15bf92619b4db28bb13498cd954b34 = $(`<div id="html_4e15bf92619b4db28bb13498cd954b34" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 2,027 per 100,000 • 2017 Homicides: 342 • Poverty rate: 23.1% • Unemployment rate: 6.1%</div>`)[0];
+            popup_61d01be0e1284381ade5c288d3d81fe5.setContent(html_4e15bf92619b4db28bb13498cd954b34);
+        
+
+        marker_92e0839046d24a3fb492d8882ab2a462.bindPopup(popup_61d01be0e1284381ade5c288d3d81fe5)
+        ;
+
+        
+    
+    
+            marker_92e0839046d24a3fb492d8882ab2a462.bindTooltip(
+                `<div>
+                     Baltimore, Maryland
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_76526654f86341b49f633a8f1153164b = L.marker(
+                [35.1278958, -90.5312753],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_3ecb4ca2d1b940659d9d7d10612bf635 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_76526654f86341b49f633a8f1153164b.setIcon(icon_3ecb4ca2d1b940659d9d7d10612bf635);
+        
+    
+        var popup_0dbcbb11a9bc45abb581b3b31e2fc434 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_63b5422b2dc04c5a9f1466bf29edb803 = $(`<div id="html_63b5422b2dc04c5a9f1466bf29edb803" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 2,003 per 100,000 • 2017 Homicides: 181 • Poverty rate: 27.6% • Unemployment rate: 4.8%</div>`)[0];
+            popup_0dbcbb11a9bc45abb581b3b31e2fc434.setContent(html_63b5422b2dc04c5a9f1466bf29edb803);
+        
+
+        marker_76526654f86341b49f633a8f1153164b.bindPopup(popup_0dbcbb11a9bc45abb581b3b31e2fc434)
+        ;
+
+        
+    
+    
+            marker_76526654f86341b49f633a8f1153164b.bindTooltip(
+                `<div>
+                     Memphis, Tennessee
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bcd37256a1964740854c84d9c38a5b74 = L.marker(
+                [39.0915837, -94.8559147],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_04ad413518e0498dbabf5d2bf9ac13a0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_bcd37256a1964740854c84d9c38a5b74.setIcon(icon_04ad413518e0498dbabf5d2bf9ac13a0);
+        
+    
+        var popup_f83e68875f684d298213f529e4fb8c9e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_56434ac9505e4c449f20a034528672e6 = $(`<div id="html_56434ac9505e4c449f20a034528672e6" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,724 per 100,000 • 2017 Homicides: 150 • Poverty rate: 18.3% • Unemployment rate: 4.3%</div>`)[0];
+            popup_f83e68875f684d298213f529e4fb8c9e.setContent(html_56434ac9505e4c449f20a034528672e6);
+        
+
+        marker_bcd37256a1964740854c84d9c38a5b74.bindPopup(popup_f83e68875f684d298213f529e4fb8c9e)
+        ;
+
+        
+    
+    
+            marker_bcd37256a1964740854c84d9c38a5b74.bindTooltip(
+                `<div>
+                      Kansas City, Missouri
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4d86e6910a404f5db646f77aa51cc9bb = L.marker(
+                [34.7236841, -92.6181255],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_275455edd4c24c0a8e1dc2241d3dee6d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_4d86e6910a404f5db646f77aa51cc9bb.setIcon(icon_275455edd4c24c0a8e1dc2241d3dee6d);
+        
+    
+        var popup_f46d33d55d524ee2ac6306277125381a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_204c5f730e4842ebb7911397bf9258a1 = $(`<div id="html_204c5f730e4842ebb7911397bf9258a1" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,634 per 100,000 • 2017 Homicides: 55 • Poverty rate: 18.5% • Unemployment rate: 3.3%</div>`)[0];
+            popup_f46d33d55d524ee2ac6306277125381a.setContent(html_204c5f730e4842ebb7911397bf9258a1);
+        
+
+        marker_4d86e6910a404f5db646f77aa51cc9bb.bindPopup(popup_f46d33d55d524ee2ac6306277125381a)
+        ;
+
+        
+    
+    
+            marker_4d86e6910a404f5db646f77aa51cc9bb.bindTooltip(
+                `<div>
+                     Little Rock, Arkansas
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3f8f9b6a4b1f417f8b552ae99288132a = L.marker(
+                [43.057806, -88.107516],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_7aa6bf5e6de541ee8447975641b890b2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_3f8f9b6a4b1f417f8b552ae99288132a.setIcon(icon_7aa6bf5e6de541ee8447975641b890b2);
+        
+    
+        var popup_f8250e8cd87d4c0b9f6c96453a51fb7c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_be4d4f8140354a33b319c499ce8817e7 = $(`<div id="html_be4d4f8140354a33b319c499ce8817e7" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,597 per 100,000 • 2017 Homicides: 118 • Poverty rate: 28.4% • Unemployment rate: 4.6%</div>`)[0];
+            popup_f8250e8cd87d4c0b9f6c96453a51fb7c.setContent(html_be4d4f8140354a33b319c499ce8817e7);
+        
+
+        marker_3f8f9b6a4b1f417f8b552ae99288132a.bindPopup(popup_f8250e8cd87d4c0b9f6c96453a51fb7c)
+        ;
+
+        
+    
+    
+            marker_3f8f9b6a4b1f417f8b552ae99288132a.bindTooltip(
+                `<div>
+                      Milwaukee, Wisconsin
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1cb6f8c876994241889068c586a51f2b = L.marker(
+                [42.2526365, -89.3482524],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_8affbd2610bd4222a39417b24534295c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_1cb6f8c876994241889068c586a51f2b.setIcon(icon_8affbd2610bd4222a39417b24534295c);
+        
+    
+        var popup_8cdb45c36ae84ac988727168416a50c0 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0da2fc9f368c47a7a736f60ac6adc599 = $(`<div id="html_0da2fc9f368c47a7a736f60ac6adc599" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,588 per 100,000 • 2017 Homicides: 18 • Poverty rate: 22.7% • Unemployment rate: 7.5%</div>`)[0];
+            popup_8cdb45c36ae84ac988727168416a50c0.setContent(html_0da2fc9f368c47a7a736f60ac6adc599);
+        
+
+        marker_1cb6f8c876994241889068c586a51f2b.bindPopup(popup_8cdb45c36ae84ac988727168416a50c0)
+        ;
+
+        
+    
+    
+            marker_1cb6f8c876994241889068c586a51f2b.bindTooltip(
+                `<div>
+                     Rockford, Illinois
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_de048aa18a064cb8ab0fedea65f9b43d = L.marker(
+                [41.497192, -81.9860534],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_39fb574de6b041409b95dfa3baed4b39 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_de048aa18a064cb8ab0fedea65f9b43d.setIcon(icon_39fb574de6b041409b95dfa3baed4b39);
+        
+    
+        var popup_2d38b0dc89ac4f3cae29b0ce0acdcccd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_68897c08d9f74c088591a3af80cc267e = $(`<div id="html_68897c08d9f74c088591a3af80cc267e" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,557 per 100,000 • 2017 Homicides: 107 • Poverty rate: 36.0% • Unemployment rate: 7.4%</div>`)[0];
+            popup_2d38b0dc89ac4f3cae29b0ce0acdcccd.setContent(html_68897c08d9f74c088591a3af80cc267e);
+        
+
+        marker_de048aa18a064cb8ab0fedea65f9b43d.bindPopup(popup_2d38b0dc89ac4f3cae29b0ce0acdcccd)
+        ;
+
+        
+    
+    
+            marker_de048aa18a064cb8ab0fedea65f9b43d.bindTooltip(
+                `<div>
+                      Cleveland, Ohio
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_25662a84323548058f7807e517a4d459 = L.marker(
+                [37.9726911, -121.5820735],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_0d0adf30efb44ac08c321bc6eb2bf65a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_25662a84323548058f7807e517a4d459.setIcon(icon_0d0adf30efb44ac08c321bc6eb2bf65a);
+        
+    
+        var popup_b259acdc76954010b77cd4bbcf6bbb56 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_33610e59130b4de5ba4b612d5c09c36b = $(`<div id="html_33610e59130b4de5ba4b612d5c09c36b" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,415 per 100,000 • 2017 Homicides: 55 • Poverty rate: 23.7% • Unemployment rate: 8.0%</div>`)[0];
+            popup_b259acdc76954010b77cd4bbcf6bbb56.setContent(html_33610e59130b4de5ba4b612d5c09c36b);
+        
+
+        marker_25662a84323548058f7807e517a4d459.bindPopup(popup_b259acdc76954010b77cd4bbcf6bbb56)
+        ;
+
+        
+    
+    
+            marker_25662a84323548058f7807e517a4d459.bindTooltip(
+                `<div>
+                     Stockton, California
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7b1f3a589a25446585e1e3f1bc569475 = L.marker(
+                [35.0820877, -106.9566772],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_c11e6a8d6ccb4c5b8aea1bab219fcbf5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_7b1f3a589a25446585e1e3f1bc569475.setIcon(icon_c11e6a8d6ccb4c5b8aea1bab219fcbf5);
+        
+    
+        var popup_40fedec9f65a44959546d855225cf52a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b16815ffe59944ceb207e84fba232475 = $(`<div id="html_b16815ffe59944ceb207e84fba232475" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,369 per 100,000 • 2017 Homicides: 70 • Poverty rate: 18.9% • Unemployment rate: 5.5%</div>`)[0];
+            popup_40fedec9f65a44959546d855225cf52a.setContent(html_b16815ffe59944ceb207e84fba232475);
+        
+
+        marker_7b1f3a589a25446585e1e3f1bc569475.bindPopup(popup_40fedec9f65a44959546d855225cf52a)
+        ;
+
+        
+    
+    
+            marker_7b1f3a589a25446585e1e3f1bc569475.bindTooltip(
+                `<div>
+                     Albuquerque, New Mexico
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f607579a6a804370890593b94e9aa662 = L.marker(
+                [37.1787746, -93.576521],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_ba6e2118019a48b4b59cf2a9f90cc06c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f607579a6a804370890593b94e9aa662.setIcon(icon_ba6e2118019a48b4b59cf2a9f90cc06c);
+        
+    
+        var popup_e4ddc66a2bf5404b87a1dba99dfa3104 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d5f26bc9331749dea2b8e7c765992de4 = $(`<div id="html_d5f26bc9331749dea2b8e7c765992de4" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,339 per 100,000 • 2017 Homicides: 14 • Poverty rate: 25.9% • Unemployment rate: 3.2%</div>`)[0];
+            popup_e4ddc66a2bf5404b87a1dba99dfa3104.setContent(html_d5f26bc9331749dea2b8e7c765992de4);
+        
+
+        marker_f607579a6a804370890593b94e9aa662.bindPopup(popup_e4ddc66a2bf5404b87a1dba99dfa3104)
+        ;
+
+        
+    
+    
+            marker_f607579a6a804370890593b94e9aa662.bindTooltip(
+                `<div>
+                     Springfield, Missouri
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_17942e92d1f1403f84e241ee568130ed = L.marker(
+                [39.7794476, -86.4129447],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_0e797fe9f64f482c8ab9f9d1582e1dd8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_17942e92d1f1403f84e241ee568130ed.setIcon(icon_0e797fe9f64f482c8ab9f9d1582e1dd8);
+        
+    
+        var popup_43090212546141cebbad3ed252456248 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4d31b22f844246f9bd51d1848f1f27d1 = $(`<div id="html_4d31b22f844246f9bd51d1848f1f27d1" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,334 per 100,000 • 2017 Homicides: 156 • Poverty rate: 20.9% • Unemployment rate: 3.6%</div>`)[0];
+            popup_43090212546141cebbad3ed252456248.setContent(html_4d31b22f844246f9bd51d1848f1f27d1);
+        
+
+        marker_17942e92d1f1403f84e241ee568130ed.bindPopup(popup_43090212546141cebbad3ed252456248)
+        ;
+
+        
+    
+    
+            marker_17942e92d1f1403f84e241ee568130ed.bindTooltip(
+                `<div>
+                     Indianapolis, Indiana
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a2f1c18eca7247e49981c6a518283c14 = L.marker(
+                [37.7583859, -122.515504],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_da642fd4f78b4a1ba0232a23aa64a028 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a2f1c18eca7247e49981c6a518283c14.setIcon(icon_da642fd4f78b4a1ba0232a23aa64a028);
+        
+    
+        var popup_d09385ccd1f048eeb9e2b24355bdad7c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_75adf428481d4c468089ff5db0c33791 = $(`<div id="html_75adf428481d4c468089ff5db0c33791" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,299 per 100,000 • 2017 Homicides: 69 • Poverty rate: 20.0% • Unemployment rate: 4.2%</div>`)[0];
+            popup_d09385ccd1f048eeb9e2b24355bdad7c.setContent(html_75adf428481d4c468089ff5db0c33791);
+        
+
+        marker_a2f1c18eca7247e49981c6a518283c14.bindPopup(popup_d09385ccd1f048eeb9e2b24355bdad7c)
+        ;
+
+        
+    
+    
+            marker_a2f1c18eca7247e49981c6a518283c14.bindTooltip(
+                `<div>
+                     Oakland, California
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ef568733220e4b6a8848d2303b778e9c = L.marker(
+                [34.1485581, -117.574843],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_684271132f48447494f8472307296a7a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_ef568733220e4b6a8848d2303b778e9c.setIcon(icon_684271132f48447494f8472307296a7a);
+        
+    
+        var popup_2d262cdd27db44d99d458ab6c1409f23 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d6ecbc290bd34a3e97fa35ba46f9a30e = $(`<div id="html_d6ecbc290bd34a3e97fa35ba46f9a30e" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,291 per 100,000 • 2017 Homicides: 34 • Poverty rate: 32.3% • Unemployment rate: 6.3%</div>`)[0];
+            popup_2d262cdd27db44d99d458ab6c1409f23.setContent(html_d6ecbc290bd34a3e97fa35ba46f9a30e);
+        
+
+        marker_ef568733220e4b6a8848d2303b778e9c.bindPopup(popup_2d262cdd27db44d99d458ab6c1409f23)
+        ;
+
+        
+    
+    
+            marker_ef568733220e4b6a8848d2303b778e9c.bindTooltip(
+                `<div>
+                     San Bernardino, California
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3423ec307385493f9280d0c5cbb18be1 = L.marker(
+                [61.0902967, -151.6825336],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_d26ff1f9a68e4b00af5d279cf949fa0b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_3423ec307385493f9280d0c5cbb18be1.setIcon(icon_d26ff1f9a68e4b00af5d279cf949fa0b);
+        
+    
+        var popup_f19e6ce7bad04a15a51624f9b3697f1a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_99e21e9a298c40369efe1b913f7b26a4 = $(`<div id="html_99e21e9a298c40369efe1b913f7b26a4" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,203 per 100,000 • 2017 Homicides: 27 • Poverty rate: 8.1% • Unemployment rate: 6.0%</div>`)[0];
+            popup_f19e6ce7bad04a15a51624f9b3697f1a.setContent(html_99e21e9a298c40369efe1b913f7b26a4);
+        
+
+        marker_3423ec307385493f9280d0c5cbb18be1.bindPopup(popup_f19e6ce7bad04a15a51624f9b3697f1a)
+        ;
+
+        
+    
+    
+            marker_3423ec307385493f9280d0c5cbb18be1.bindTooltip(
+                `<div>
+                     Anchorage, Alaska
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_60215c8ad4634514a61abd12f11bd70d = L.marker(
+                [36.1157336, -87.3367153],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_a7303a2ea9614f17ab48b0e113ade0f5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_60215c8ad4634514a61abd12f11bd70d.setIcon(icon_a7303a2ea9614f17ab48b0e113ade0f5);
+        
+    
+        var popup_3ebe82f249ef4d1f960bb90f44833806 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2793cd3df8e042f599f5b30743125c94 = $(`<div id="html_2793cd3df8e042f599f5b30743125c94" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,138 per 100,000 • 2017 Homicides: 110 • Poverty rate: 18.0% • Unemployment rate: N/A</div>`)[0];
+            popup_3ebe82f249ef4d1f960bb90f44833806.setContent(html_2793cd3df8e042f599f5b30743125c94);
+        
+
+        marker_60215c8ad4634514a61abd12f11bd70d.bindPopup(popup_3ebe82f249ef4d1f960bb90f44833806)
+        ;
+
+        
+    
+    
+            marker_60215c8ad4634514a61abd12f11bd70d.bindTooltip(
+                `<div>
+                     Nashville Metropolitan Area, Tennessee
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2a2f313e788845e8877bcb87d36fdc0e = L.marker(
+                [42.7083401, -84.8396201],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_d6735f97df6648fc9d3d627310ecd2c2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_2a2f313e788845e8877bcb87d36fdc0e.setIcon(icon_d6735f97df6648fc9d3d627310ecd2c2);
+        
+    
+        var popup_777b4b232fce483e9a55c4f67bcc3207 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f0ea0ad9759f4aca9ecbda98d4255017 = $(`<div id="html_f0ea0ad9759f4aca9ecbda98d4255017" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,136 per 100,000 • 2017 Homicides: 14 • Poverty rate: 29.5% • Unemployment rate: 6.3%</div>`)[0];
+            popup_777b4b232fce483e9a55c4f67bcc3207.setContent(html_f0ea0ad9759f4aca9ecbda98d4255017);
+        
+
+        marker_2a2f313e788845e8877bcb87d36fdc0e.bindPopup(popup_777b4b232fce483e9a55c4f67bcc3207)
+        ;
+
+        
+    
+    
+            marker_2a2f313e788845e8877bcb87d36fdc0e.bindTooltip(
+                `<div>
+                     Lansing, Michigan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f0d4256767164d109fb5c09471d1dff3 = L.marker(
+                [30.0318085, -90.4430649],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_b0fe8d37c8884a58bd3564b9957b7b75 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f0d4256767164d109fb5c09471d1dff3.setIcon(icon_b0fe8d37c8884a58bd3564b9957b7b75);
+        
+    
+        var popup_d59e97c9c5ce43889de2e46432cd1f17 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c26d0d684ea7472f8531088339d2e9b3 = $(`<div id="html_c26d0d684ea7472f8531088339d2e9b3" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,121 per 100,000 • 2017 Homicides: 157 • Poverty rate: 26.2% • Unemployment rate: 5.1%</div>`)[0];
+            popup_d59e97c9c5ce43889de2e46432cd1f17.setContent(html_c26d0d684ea7472f8531088339d2e9b3);
+        
+
+        marker_f0d4256767164d109fb5c09471d1dff3.bindPopup(popup_d59e97c9c5ce43889de2e46432cd1f17)
+        ;
+
+        
+    
+    
+            marker_f0d4256767164d109fb5c09471d1dff3.bindTooltip(
+                `<div>
+                     New Orleans, Louisiana
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d8e7d97bff4743c88c53e280f046a6db = L.marker(
+                [44.9706114, -93.4015641],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_d4317de5d2af4c2aae84a483790458cb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_d8e7d97bff4743c88c53e280f046a6db.setIcon(icon_d4317de5d2af4c2aae84a483790458cb);
+        
+    
+        var popup_09d1735a94504eae94b623b623a5a47b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f687b028cc8341e790d1da6ea8576fc7 = $(`<div id="html_f687b028cc8341e790d1da6ea8576fc7" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,101 per 100,000 • 2017 Homicides: 42 • Poverty rate: 21.3% • Unemployment rate: 3.1%</div>`)[0];
+            popup_09d1735a94504eae94b623b623a5a47b.setContent(html_f687b028cc8341e790d1da6ea8576fc7);
+        
+
+        marker_d8e7d97bff4743c88c53e280f046a6db.bindPopup(popup_09d1735a94504eae94b623b623a5a47b)
+        ;
+
+        
+    
+    
+            marker_d8e7d97bff4743c88c53e280f046a6db.bindTooltip(
+                `<div>
+                     Minneapolis, Minnesota 
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0edcb0115b314c1d8641ab7934e112f0 = L.marker(
+                [41.9531494, -87.8094564],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_81f9d6abb6104a05bacc30fd9c216687 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_0edcb0115b314c1d8641ab7934e112f0.setIcon(icon_81f9d6abb6104a05bacc30fd9c216687);
+        
+    
+        var popup_d036af374afe456f94f70834da23b40b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0901876ef7ba4d98ad5c4091d724607d = $(`<div id="html_0901876ef7ba4d98ad5c4091d724607d" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,099 per 100,000 • 2017 Homicides: 653 • Poverty rate: 21.7% • Unemployment rate: 5.5%</div>`)[0];
+            popup_d036af374afe456f94f70834da23b40b.setContent(html_0901876ef7ba4d98ad5c4091d724607d);
+        
+
+        marker_0edcb0115b314c1d8641ab7934e112f0.bindPopup(popup_d036af374afe456f94f70834da23b40b)
+        ;
+
+        
+    
+    
+            marker_0edcb0115b314c1d8641ab7934e112f0.bindTooltip(
+                `<div>
+                     Chicago, Illinois
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e0a44886ea0a414a94dc5d3422124ce9 = L.marker(
+                [29.8159952, -95.9617934],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_7f96ffa20f77464a9ed9e2015581dab3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e0a44886ea0a414a94dc5d3422124ce9.setIcon(icon_7f96ffa20f77464a9ed9e2015581dab3);
+        
+    
+        var popup_4a30019380ad48ed98e2b539e850e579 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e453e1aaed7e4baa954d57c50b1c30e9 = $(`<div id="html_e453e1aaed7e4baa954d57c50b1c30e9" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,095 per 100,000 • 2017 Homicides: 269 • Poverty rate: 21.9% • Unemployment rate: 4.8%</div>`)[0];
+            popup_4a30019380ad48ed98e2b539e850e579.setContent(html_e453e1aaed7e4baa954d57c50b1c30e9);
+        
+
+        marker_e0a44886ea0a414a94dc5d3422124ce9.bindPopup(popup_4a30019380ad48ed98e2b539e850e579)
+        ;
+
+        
+    
+    
+            marker_e0a44886ea0a414a94dc5d3422124ce9.bindTooltip(
+                `<div>
+                     Houston, Texas
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d7a983a0c13140879b742dfab240f274 = L.marker(
+                [41.7656662, -72.7501274],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_989d909cde394038a8b46dcbf7e24771 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_d7a983a0c13140879b742dfab240f274.setIcon(icon_989d909cde394038a8b46dcbf7e24771);
+        
+    
+        var popup_a3e723d06c614aa999447515d417b3ce = L.popup({"maxWidth": "100%"});
+
+        
+            var html_de2eb645d9b646b3b2859298cfa41fe6 = $(`<div id="html_de2eb645d9b646b3b2859298cfa41fe6" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,093 per 100,000 • 2017 Homicides: 29 • Poverty rate: 31.9% • Unemployment rate: 8.1%</div>`)[0];
+            popup_a3e723d06c614aa999447515d417b3ce.setContent(html_de2eb645d9b646b3b2859298cfa41fe6);
+        
+
+        marker_d7a983a0c13140879b742dfab240f274.bindPopup(popup_a3e723d06c614aa999447515d417b3ce)
+        ;
+
+        
+    
+    
+            marker_d7a983a0c13140879b742dfab240f274.bindTooltip(
+                `<div>
+                     Hartford, Connecticut
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a6f0a591691f45639aac189489ea71e5 = L.marker(
+                [35.0979732, -85.51888],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_acbbdfadc54a4f6f801ab23940431d54 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a6f0a591691f45639aac189489ea71e5.setIcon(icon_acbbdfadc54a4f6f801ab23940431d54);
+        
+    
+        var popup_cf1d7403626e4942913ec09f3585dae5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3f3044d2a92549a993442475c1acb9a9 = $(`<div id="html_3f3044d2a92549a993442475c1acb9a9" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,066 per 100,000 • 2017 Homicides: 31• Poverty rate: 21.1% • Unemployment rate: 3.9%</div>`)[0];
+            popup_cf1d7403626e4942913ec09f3585dae5.setContent(html_3f3044d2a92549a993442475c1acb9a9);
+        
+
+        marker_a6f0a591691f45639aac189489ea71e5.bindPopup(popup_cf1d7403626e4942913ec09f3585dae5)
+        ;
+
+        
+    
+    
+            marker_a6f0a591691f45639aac189489ea71e5.bindTooltip(
+                `<div>
+                     Chattanooga, Tennessee
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c263cf88ffd24992a442f6148c8568dc = L.marker(
+                [30.0810662, -94.267996],
+                {}
+            ).addTo(feature_group_4c51b303577f47a381686b34fbed96b5);
+        
+    
+            var icon_a1e5e045c487498abe137f4e160b0ddf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c263cf88ffd24992a442f6148c8568dc.setIcon(icon_a1e5e045c487498abe137f4e160b0ddf);
+        
+    
+        var popup_77aa712a382347419689cbf99e813f57 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4a2d0a789dc64795ab79b0f24b26036d = $(`<div id="html_4a2d0a789dc64795ab79b0f24b26036d" style="width: 100.0%; height: 100.0%;">2017 Violent crime rate: 1,063 per 100,000 • 2017 Homicides: 16 • Poverty rate: 20.8% • Unemployment rate: 6.4%</div>`)[0];
+            popup_77aa712a382347419689cbf99e813f57.setContent(html_4a2d0a789dc64795ab79b0f24b26036d);
+        
+
+        marker_c263cf88ffd24992a442f6148c8568dc.bindPopup(popup_77aa712a382347419689cbf99e813f57)
+        ;
+
+        
+    
+    
+            marker_c263cf88ffd24992a442f6148c8568dc.bindTooltip(
+                `<div>
+                     Beaumont, Texas
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var layer_control_7fe8080a7dc44eefb32fbca8249cc2ef = {
+                base_layers : {
+                    "cartodbdark_matter" : tile_layer_c90be849383d4ecf980b497bc3578173,
+                    "openstreetmap" : tile_layer_9b37f425690b4c479b9f390a0f782c48,
+                    "cartodbpositron" : tile_layer_cc03b1921c13442b889ceee76cedd78c,
+                    "stamentoner" : tile_layer_9fda1b089dbb43e789a1d802f3bca9ef,
+                },
+                overlays :  {
+                    "World Crime History" : feature_group_913b26b49fc44a978a10902d1bc9473d,
+                    "The World 50 Dangerous Cities" : feature_group_b73c7431ab3146d8a7d9bda8e3bb2e11,
+                    "Gun-Possessing Allowed Countries" : feature_group_7707ca2032194b2795c4b6c055e7436f,
+                    "US-The Most Dangerous Cities" : feature_group_4c51b303577f47a381686b34fbed96b5,
+                },
+            };
+            L.control.layers(
+                layer_control_7fe8080a7dc44eefb32fbca8249cc2ef.base_layers,
+                layer_control_7fe8080a7dc44eefb32fbca8249cc2ef.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+            tile_layer_9b37f425690b4c479b9f390a0f782c48.remove();
+            tile_layer_cc03b1921c13442b889ceee76cedd78c.remove();
+            tile_layer_9fda1b089dbb43e789a1d802f3bca9ef.remove();
+        
+    
+            map_b1efdfbe257a4563ab13d37430d2710a.scrollEnabled = true;
+
+            map_b1efdfbe257a4563ab13d37430d2710a.toggleScroll = function() {
+                if (this.scrollEnabled) {
+                    this.scrollEnabled = false;
+                    this.scrollWheelZoom.disable();
+                } else {
+                    this.scrollEnabled = true;
+                    this.scrollWheelZoom.enable();
+                }
+            };
+            map_b1efdfbe257a4563ab13d37430d2710a.toggleScroll();
+        
+    
+            var boat_marker_e7f846f09d204b98be2f108d5a4e2d8b = L.boatMarker(
+                [34.0, -43.0],
+                {"color": "#8f8"}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+            boat_marker_e7f846f09d204b98be2f108d5a4e2d8b.setHeadingWind(
+                45,
+                45,
+                150
+            );
+            
+    
+            var boat_marker_8691c1d92b424a3e93855cf8dbb2d4cf = L.boatMarker(
+                [46.0, -30.0],
+                {"color": "#88f"}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+            boat_marker_8691c1d92b424a3e93855cf8dbb2d4cf.setHeadingWind(
+                -20,
+                25,
+                46
+            );
+            
+    
+            L.control.fullscreen(
+                {"forceSeparateButton": true, "position": "topright", "title": "Expand me", "titleCancel": "Exit me"}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+        
+    
+            var tile_layer_0e87987a3be54cb5baaeb035af9c548d = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_b58206be076740f8a7ed300778388f32 = new L.Control.MiniMap(
+                tile_layer_0e87987a3be54cb5baaeb035af9c548d,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 150, "minimized": false, "position": "bottomright", "toggleDisplay": false, "width": 150, "zoomAnimation": false, "zoomLevelOffset": -5}
+            );
+            map_b1efdfbe257a4563ab13d37430d2710a.addControl(mini_map_b58206be076740f8a7ed300778388f32);
+        
+    
+            var mouse_position_900de9a5e64e406c8bf13895a6bb96f0 = new L.Control.MousePosition(
+                {"emptyString": "Unavailable", "lngFirst": false, "numDigits": 5, "position": "bottomright", "prefix": "", "separator": " : "}
+            );
+            mouse_position_900de9a5e64e406c8bf13895a6bb96f0.options["latFormatter"] =
+                undefined;
+            mouse_position_900de9a5e64e406c8bf13895a6bb96f0.options["lngFormatter"] =
+                undefined;
+            map_b1efdfbe257a4563ab13d37430d2710a.addControl(mouse_position_900de9a5e64e406c8bf13895a6bb96f0);
+        
+    
+            var locate_control_476358126d39417abc6d76b7f182acb9 = L.control.locate(
+                {}
+            ).addTo(map_b1efdfbe257a4563ab13d37430d2710a);
+        
+    
+            var options = {
+              position: "topleft",
+              draw: {},
+              edit: {},
+            }
+            // FeatureGroup is to store editable layers.
+            var drawnItems = new L.featureGroup().addTo(
+                map_b1efdfbe257a4563ab13d37430d2710a
+            );
+            options.edit.featureGroup = drawnItems;
+            var draw_control_bdb0a766cf2c44999c062984a811bd00 = new L.Control.Draw(
+                options
+            ).addTo( map_b1efdfbe257a4563ab13d37430d2710a );
+            map_b1efdfbe257a4563ab13d37430d2710a.on(L.Draw.Event.CREATED, function(e) {
+                var layer = e.layer,
+                    type = e.layerType;
+                var coords = JSON.stringify(layer.toGeoJSON());
+                layer.on('click', function() {
+                    alert(coords);
+                    console.log(coords);
+                });
+                drawnItems.addLayer(layer);
+             });
+            map_b1efdfbe257a4563ab13d37430d2710a.on('draw:created', function(e) {
+                drawnItems.addLayer(e.layer);
+            });
+            document.getElementById('export').onclick = function(e) {
+                var data = drawnItems.toGeoJSON();
+                var convertedData = 'text/json;charset=utf-8,'
+                    + encodeURIComponent(JSON.stringify(data));
+                document.getElementById('export').setAttribute(
+                    'href', 'data:' + convertedData
+                );
+                document.getElementById('export').setAttribute(
+                    'download', "data.geojson"
+                );
+            }
         
 </script>
